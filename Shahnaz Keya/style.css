@@ -1,4 +1,3 @@
-/* ===== GLOBAL ===== */
 *{
     margin:0;
     padding:0;
@@ -7,137 +6,210 @@
 
 body{
     font-family: Arial, sans-serif;
-    background:#F2E3E3;
-    animation: pageFade 1s ease-in;
+    background: linear-gradient(-45deg, #f2e3e3, #ffffff, #ffe3ea, #f8f8ff);
+    background-size: 400% 400%;
+    animation: bgMove 10s ease infinite;
+    color:#222;
+    line-height:1.6;
+    overflow-x:hidden;
 }
 
-/* page animation */
+/* BACKGROUND ANIMATION */
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* =======================
+   PAGE FADE
+======================= */
 @keyframes pageFade{
-    from{opacity:0; transform:translateY(20px);}
+    from{opacity:0; transform:translateY(30px);}
     to{opacity:1; transform:translateY(0);}
 }
 
-/* ===== HEADER ===== */
+body{
+    animation: pageFade 1s ease-in;
+}
+
+/* =======================
+   HEADER (GLASS + ANIMATED)
+======================= */
 header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:12px 40px;
-    border-bottom:1px solid #ccc;
+    padding:15px 40px;
+
+    background: rgba(199, 158, 158, 0.7);
+    backdrop-filter: blur(10px);
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    animation: headerGlow 6s infinite;
+}
+
+@keyframes headerGlow{
+    0%{box-shadow:0 0 10px #ffb6c1;}
+    50%{box-shadow:0 0 25px #ff2f6e;}
+    100%{box-shadow:0 0 10px #ffb6c1;}
 }
 
 header a{
     text-decoration:none;
     color:#000;
-    font-weight:bold;
+    font-weight:600;
     margin:0 10px;
-    transition:0.3s;
-    font-size:16px;
-}
-
-header a:hover{
-    color:#ff2f6e;
-    transform:scale(1.1);
-}
-
-/* ===== SOCIAL ICONS ===== */
-.social a{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    width:40px;
-    height:40px;
-    margin:0 5px;
-    border-radius:50%;
-    background:#fff;
-    color:#000;
     transition:0.4s;
-    box-shadow:0 3px 8px rgba(0,0,0,0.2);
-}
-
-.social a:hover{
-    transform:translateY(-5px) scale(1.1);
-    background:#ff2f6e;
-    color:#fff;
-}
-
-/* ===== SECTION 2 ===== */
-.section2{
-    text-align:center;
-    padding:20px;
-}
-
-.section2 img.logo{
-    height:150px;
-    transition:0.5s;
-    animation: floatLogo 3s infinite ease-in-out;
-}
-
-@keyframes floatLogo{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-    100%{transform:translateY(0);}
-}
-
-/* ===== MENU (BIG + ANIMATION) ===== */
-.menu{
-    margin-top:15px;
-}
-
-.menu a{
-    text-decoration:none;
-    margin:0 12px;
-    font-size:20px;   
-    font-weight:bold;
-    color:#000;
     position:relative;
-    transition:0.3s;
 }
 
-.menu a::after{
-    content:"";
+/* underline animation */
+header a::after{
+    content:'';
     position:absolute;
     left:0;
     bottom:-5px;
     width:0%;
-    height:3px;
+    height:2px;
     background:#ff2f6e;
-    transition:0.3s;
+    transition:0.4s;
 }
 
-.menu a:hover{
-    color:#ff2f6e;
-    letter-spacing:1px;
-}
-
-.menu a:hover::after{
+header a:hover::after{
     width:100%;
 }
 
-/* ===== COVER ===== */
+header a:hover{
+    color:#ff2f6e;
+    transform:scale(1.05);
+}
+
+/* =======================
+   SOCIAL ICONS
+======================= */
+.social a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:45px;
+    height:45px;
+    margin:0 5px;
+    border-radius:50%;
+    background:#fff;
+    color:#000;
+
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+    animation: floatIcon 3s infinite ease-in-out;
+}
+
+@keyframes floatIcon{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+.social a:hover{
+    transform:scale(1.2) rotate(5deg);
+    background:#ff2f6e;
+    color:#fff;
+}
+
+/* =======================
+   LOGO FLOAT
+======================= */
+.section2{
+    text-align:center;
+    padding:30px;
+}
+
+.section2 img.logo{
+    height:150px;
+    animation: floatLogo 4s ease-in-out infinite;
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+}
+
+@keyframes floatLogo{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* =======================
+   COVER SECTION
+======================= */
+.cover{
+    position:relative;
+    width:100%;
+    height:420px;
+    overflow:hidden;
+}
+
 .cover img{
     width:100%;
-    height:300px;
+    height:100%;
     object-fit:cover;
-    transition:0.5s;
+    animation: zoomSlow 10s infinite alternate;
 }
 
-.cover img:hover{
-    transform:scale(1.03);
-    filter:brightness(0.85);
+@keyframes zoomSlow{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
 }
 
+/* COVER TEXT ANIMATION */
+.cover-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+
+    padding:15px 25px;
+    background:rgba(0,0,0,0.4);
+    border-radius:12px;
+
+    animation: textPop 3s infinite, glow 2s infinite;
+}
+
+@keyframes textPop{
+    0%{opacity:0; transform:translate(-50%,-60%) scale(0.8);}
+    50%{opacity:1; transform:translate(-50%,-50%) scale(1);}
+    100%{opacity:0; transform:translate(-50%,-40%) scale(0.8);}
+}
+
+@keyframes glow{
+    0%{text-shadow:0 0 5px #fff;}
+    50%{text-shadow:0 0 20px #00eaff;}
+    100%{text-shadow:0 0 5px #fff;}
+}
+
+/* =======================
+   ABOUT SECTION
+======================= */
 .about{
     display:flex;
     justify-content:space-between;
-    padding:40px;
-    gap:20px;
+    align-items:center;
+    padding:60px;
+    gap:30px;
+
+    animation: fadeUp 1.5s ease;
 }
 
-/* 🔥 Only heading center */
-.about h2{
-    text-align:center;
-    width:100%;
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
 }
 
 .about .text{
@@ -147,108 +219,121 @@ header a:hover{
 
 .about img{
     width:40%;
-    border-radius:10px;
-    transition:0.5s;
-}
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    transition:0.5s ease;
 
+    margin-top: -500px;  
+}
 .about img:hover{
-    transform:scale(1.05);
+    transform:scale(1.05) rotate(1deg);
 }
 
-/* BUTTON */
+/* =======================
+   BUTTON (RIPPLE STYLE)
+======================= */
 .btn{
-    margin-top:10px;
-    padding:10px 20px;
-    background:#000;
+    margin-top:12px;
+    padding:12px 25px;
+    background:linear-gradient(45deg,#000,#333);
     color:#fff;
     border:none;
     cursor:pointer;
-    border-radius:5px;
-    transition:0.3s;
+    border-radius:8px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
 }
 
 .btn:hover{
-    background:#ff2f6e;
+    background:linear-gradient(45deg,#ff2f6e,#ff6b81);
     transform:translateY(-3px);
 }
 
-/* ===== ARTICLES ===== */
+/* =======================
+   ARTICLES
+======================= */
 .articles{
-    padding:40px;
-}
-
-.articles h2{
-    text-align:center;
-    margin-bottom:20px;
+    padding:60px;
 }
 
 .grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
     gap:20px;
 }
 
 .card{
-    background:#fff;
-    padding:10px;
-    border-radius:10px;
-    transition:0.4s;
+    background:rgba(255,255,255,0.8);
+    padding:15px;
+    border-radius:15px;
+    transition:0.5s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    backdrop-filter: blur(5px);
 }
 
 .card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
+    transform:translateY(-12px) scale(1.03);
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
 }
 
 .card img{
     width:100%;
     height:180px;
     object-fit:cover;
-    border-radius:8px;
+    border-radius:10px;
 }
 
-/* ===== ACTIVITIES (CENTER FIXED) ===== */
+/* =======================
+   ACTIVITIES
+======================= */
 .activities{
-    padding:40px;
+    padding:60px;
     display:flex;
     flex-direction:column;
-    align-items:center;   /* 🔥 center horizontally */
-    text-align:center;    /* 🔥 text center */
+    align-items:center;
 }
 
 .activity-box{
     background:#fff;
     padding:20px;
     margin-bottom:15px;
-    border-radius:10px;
-    transition:0.3s;
+    border-radius:12px;
+    width:70%;
+    max-width:700px;
 
-    width:70%;            /* box width control */
-    max-width:700px;     /* responsive limit */
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
 .activity-box:hover{
-    background:#ffe3ea;
-    transform:scale(1.02);
+    transform:scale(1.05);
+    background:linear-gradient(90deg,#ffe3ea,#fff);
 }
 
-/* ===== FOOTER ===== */
+/* =======================
+   FOOTER
+======================= */
 footer{
     text-align:center;
-    padding:20px;
+    padding:25px;
     background:#ddd;
 }
 
-/* ===== RESPONSIVE ===== */
+/* =======================
+   RESPONSIVE
+======================= */
 @media(max-width:768px){
-    .menu a{
-        display:inline-block;
-        margin:10px;
-        font-size:18px;
+
+    header{
+        flex-direction:column;
+        gap:10px;
     }
 
     .about{
         flex-direction:column;
+        padding:30px;
     }
 
     .about .text,
@@ -256,78 +341,7 @@ footer{
         width:100%;
     }
 
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    header{
-        flex-direction:column;
-        gap:10px;
+    .activity-box{
+        width:100%;
     }
 }
-
-
-
-
-.cover {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-}
-
-.cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* ===== xxxxxx  cover text   xxxxxx ===== */
-.cover-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-    color: white;
-    font-size: 28px;
-    font-weight: bold;
-    text-align: center;
-
-    padding: 12px 20px;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-
-    /* animation */
-    animation: fadeSlide 3s ease-in-out infinite, glow 2s ease-in-out infinite;
-}
-
-/* FADE + SLIDE */
-@keyframes fadeSlide {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, -60%);
-    }
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
-    100% {
-        opacity: 0;
-        transform: translate(-50%, -40%);
-    }
-}
-
-/* GLOW EFFECT */
-@keyframes glow {
-    0% {
-        text-shadow: 0 0 5px white;
-    }
-    50% {
-        text-shadow: 0 0 15px #00eaff, 0 0 25px #00eaff;
-    }
-    100% {
-        text-shadow: 0 0 5px white;
-    }
-}
-/* ===== xxxxxx  cover text off   xxxxxx ===== */
