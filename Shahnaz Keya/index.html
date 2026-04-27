@@ -9,7 +9,707 @@
 <!-- Font Awesome (icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<link rel="stelesheet" href="style.css">
+<style>
+/* =======================
+   pc
+======================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background:#F2E3E3;
+    background-size: 400% 400%;
+    animation: bgMove 10s ease infinite;
+    color:#0f0f0f;
+    line-height:1.6;
+    overflow-x:hidden;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+/* =======================
+   PAGE FADE
+======================= */
+@keyframes pageFade{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+body{
+    animation: pageFade 1s ease-in;
+}
+
+/* =======================
+   HEADER (GLASS + ANIMATED)
+======================= */
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+
+    background: rgba(199, 158, 158, 0.7);
+    backdrop-filter: blur(10px);
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    animation: headerGlow 6s infinite;
+}
+
+@keyframes headerGlow{
+    0%{box-shadow:0 0 10px #ffb6c1;}
+    50%{box-shadow:0 0 25px #ff2f6e;}
+    100%{box-shadow:0 0 10px #ffb6c1;}
+}
+
+header a{
+    text-decoration:none;
+    color:#000;
+    font-weight:600;
+    margin:0 10px;
+    transition:0.4s;
+    position:relative;
+}
+
+/* underline animation */
+header a::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#ff2f6e;
+    transition:0.4s;
+}
+
+header a:hover::after{
+    width:100%;
+}
+
+header a:hover{
+    color:#ff2f6e;
+    transform:scale(1.05);
+}
+
+/* =======================
+   SOCIAL ICONS
+======================= */
+.social a{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+    width:45px;
+    height:45px;
+    margin:0 5px;
+    border-radius:50%;
+    background:#fff;
+    color:#000;
+
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+
+    animation: floatIcon 3s infinite ease-in-out;
+}
+
+@keyframes floatIcon{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-6px);}
+    100%{transform:translateY(0);}
+}
+
+.social a:hover{
+    transform:scale(1.2) rotate(5deg);
+    background:#ff2f6e;
+    color:#fff;
+}
+
+/* =======================
+   LOGO FLOAT
+======================= */
+.section2{
+    text-align:center;
+    padding:30px;
+}
+
+.section2 img.logo{
+    height:150px;
+    animation: floatLogo 4s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-15px);}
+    100%{transform:translateY(0);}
+}
+
+/* =======================
+   COVER SECTION
+======================= */
+.cover{
+    position:relative;
+    width:100%;
+    height:420px;
+    overflow:hidden;
+}
+
+.cover img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    animation: zoomSlow 10s infinite alternate;
+}
+
+@keyframes zoomSlow{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
+}
+
+/* COVER TEXT ANIMATION */
+.cover-text{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    color:#fff;
+    font-size:28px;
+    font-weight:bold;
+    text-align:center;
+
+    padding:15px 25px;
+    background:rgba(0,0,0,0.4);
+    border-radius:12px;
+
+    animation: textPop 3s infinite, glow 2s infinite;
+}
+
+@keyframes textPop{
+    0%{opacity:0; transform:translate(-50%,-60%) scale(0.8);}
+    50%{opacity:1; transform:translate(-50%,-50%) scale(1);}
+    100%{opacity:0; transform:translate(-50%,-40%) scale(0.8);}
+}
+
+@keyframes glow{
+    0%{text-shadow:0 0 5px #fff;}
+    50%{text-shadow:0 0 20px #00eaff;}
+    100%{text-shadow:0 0 5px #fff;}
+}
+
+
+
+/* =======================
+   GLOBAL RESET
+======================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#f2e3e3,#e6f0ff);
+    color:#111;
+    overflow-x:hidden;
+}
+/*/* =======================
+   ABOUT SECTION (GLASS)
+======================= */
+.box{
+    width:85%;
+    margin:80px auto;
+    padding:40px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start; /* 🔥 key fix */
+
+    gap:60px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(18px);
+    border-radius:25px;
+
+    box-shadow:0 0 40px rgba(0,0,0,0.15);
+    border:1px solid rgba(255,255,255,0.3);
+}
+
+/* LEFT TEXT */
+.box .text{
+    flex:1;
+    text-align:justify;
+}
+
+.box .text h2{
+    font-size:28px;
+    color:#ff2f6e;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.box .text h2::after{
+    content:'';
+    width:70px;
+    height:3px;
+    background:#ff2f6e;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    border-radius:10px;
+}
+
+.box .text p{
+    font-size:15px;
+    line-height:1.8;
+    margin-bottom:12px;
+    text-align:justify;
+}
+
+/* RIGHT IMAGE (TOP ALIGNED AUTOMATIC) */
+.box .image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start; 
+}
+
+.box .image img{
+    width:320px;
+    height:320px;
+    object-fit:cover;
+
+    border-radius:20px;
+
+    transition:0.4s;
+}
+
+.box .image img:hover{
+    transform:scale(1.05);
+}
+
+
+
+/* =======================
+   ANIMATION
+======================= */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media(max-width:900px){
+    .box{
+        flex-direction:column;
+        text-align:center;
+        padding:25px;
+    }
+
+    .box .text{
+        text-align:center;
+    }
+
+    .box .image img{
+        width:250px;
+        height:250px;
+    }
+}
+
+
+
+
+/* =======================
+   ANIMATION
+======================= */
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media(max-width:900px){
+    .box{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .box img{
+        width:250px;
+        height:250px;
+    }
+
+    .box .text{
+        text-align:center;
+    }
+}
+
+/* =======================
+   BUTTON (RIPPLE STYLE)
+======================= */
+.btn{
+    margin-top:12px;
+    padding:12px 25px;
+    background:linear-gradient(45deg,#000,#333);
+    color:#fff;
+    border:none;
+    cursor:pointer;
+    border-radius:8px;
+    transition:0.4s;
+    position:relative;
+    overflow:hidden;
+}
+
+.btn:hover{
+    background:linear-gradient(45deg,#ff2f6e,#ff6b81);
+    transform:translateY(-3px);
+}
+
+/* =======================
+   ARTICLES SECTION
+======================= */
+.articles{
+    padding:60px;
+}
+
+/* TITLE */
+.articles h2{
+    text-align:center;
+    margin-bottom:25px;
+    color:#ff2f6e;
+    position:relative;
+}
+
+/* underline center */
+.articles h2::after{
+    content:'';
+    width:80px;
+    height:3px;
+    background:#ff2f6e;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:-8px;
+    border-radius:10px;
+}
+
+/* =======================
+   GRID (CENTERED)
+======================= */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(250px, 280px));
+    justify-content:center;
+    gap:20px;
+}
+
+/* =======================
+   CARD
+======================= */
+.card{
+    background:#fff;
+    border-radius:15px;
+    overflow:hidden;
+
+    width:100%;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    transition:0.3s;
+
+    animation: fadeUp 0.8s ease;
+}
+
+/* stagger animation */
+.card:nth-child(2){animation-delay:0.1s;}
+.card:nth-child(3){animation-delay:0.2s;}
+.card:nth-child(4){animation-delay:0.3s;}
+.card:nth-child(5){animation-delay:0.4s;}
+.card:nth-child(6){animation-delay:0.5s;}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =======================
+   IMAGE (YouTube style)
+======================= */
+.card img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+    transition:0.4s;
+}
+
+/* hover zoom */
+.card:hover img{
+    transform:scale(1.08);
+}
+
+/* =======================
+   TEXT
+======================= */
+.card p{
+    padding:12px;
+    font-weight:600;
+    font-size:14px;
+}
+
+/* =======================
+   HOVER EFFECT
+======================= */
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media(max-width:768px){
+    .articles{
+        padding:30px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* ===========skill ========/*/
+
+.profile-section{
+    width:85%;
+    margin:80px auto;
+    display:flex;
+    gap:40px;
+
+    padding:40px;
+
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+
+    box-shadow:0 0 40px rgba(0,0,0,0.15);
+
+    animation: sectionFade 1.2s ease-in-out;
+}
+
+/* =======================
+   SECTION FADE IN
+======================= */
+@keyframes sectionFade{
+    from{
+        opacity:0;
+        transform:translateY(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =======================
+   LEFT - SKILLS
+======================= */
+.skills{
+    flex:1;
+    animation: slideLeft 1s ease;
+}
+
+@keyframes slideLeft{
+    from{
+        opacity:0;
+        transform:translateX(-60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.skills h2{
+    color:#ff2f6e;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.skills h2::after{
+    content:'';
+    width:60px;
+    height:3px;
+    background:#ff2f6e;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    border-radius:10px;
+}
+
+.skills ul{
+    list-style:none;
+}
+
+.skills ul li{
+    padding:12px 10px;
+    margin:8px 0;
+
+    background:rgba(255,255,255,0.4);
+    border-radius:10px;
+
+    transition:0.4s;
+    cursor:pointer;
+
+    position:relative;
+    overflow:hidden;
+}
+
+/* hover glow + slide */
+.skills ul li:hover{
+    transform:translateX(10px);
+    background:#fff;
+    box-shadow:0 8px 20px rgba(255,47,110,0.2);
+    color:#ff2f6e;
+}
+
+/* =======================
+   RIGHT - EXPERIENCE
+======================= */
+.experience{
+    flex:1;
+    animation: slideRight 1s ease;
+}
+
+@keyframes slideRight{
+    from{
+        opacity:0;
+        transform:translateX(60px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
+    }
+}
+
+.experience h2{
+    color:#ff2f6e;
+    margin-bottom:15px;
+    position:relative;
+}
+
+.experience h2::after{
+    content:'';
+    width:60px;
+    height:3px;
+    background:#ff2f6e;
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    border-radius:10px;
+}
+
+/* JOB CARD */
+.job{
+    background:#fff;
+    padding:15px;
+    margin-bottom:15px;
+    border-radius:12px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+
+    transition:0.4s ease;
+    position:relative;
+    overflow:hidden;
+
+    animation: fadeUp 0.8s ease;
+}
+
+/* stagger effect */
+.job:nth-child(2){ animation-delay:0.2s; }
+.job:nth-child(3){ animation-delay:0.4s; }
+.job:nth-child(4){ animation-delay:0.6s; }
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* hover effect */
+.job:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 15px 30px rgba(255,47,110,0.25);
+}
+
+/* glow border effect */
+.job::before{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:-100%;
+    background:linear-gradient(120deg,transparent,rgba(255,47,110,0.2),transparent);
+    transition:0.5s;
+}
+
+.job:hover::before{
+    left:100%;
+}
+
+/* =======================
+   RESPONSIVE
+======================= */
+@media(max-width:900px){
+    .profile-section{
+        flex-direction:column;
+    }
+}
+
+/* =======================
+   skill xxxx========/*/
+
+
+</style>    
 </head>
 
 <body>
@@ -18,12 +718,10 @@
 <header>
     <div class="left">
         <a href="#">Home</a>
-        <a href="#">Public Article</a>
         <a href="#">Blog</a>
-        <a href="#">Contact</a>
-        <a href="#">About</a>
-        <a href="#">Gallery</a>
-        <a href="#">More</a>
+        <a href="#">Publications</a>
+        <a href="#">Conference Papers</a>
+        <a href="#">Poems</a>
     </div>
 
     <!-- SOCIAL ICONS -->
@@ -50,117 +748,124 @@
 </div>
 
 
-<!-- ABOUT -->
-<div class="about">
-    <div class="text">
+<div class="box">
+     <div class="text">
+
 <h2>About Shahnaz Jasmeen Keya</h2>
 
 <p>
-Shahnaz Jasmeen Keya is currently serving as a Lecturer in the Department of Education at RTM Al-Kabir Technical University (RTM-AKTU).
+Shahnaz Jasmeen Keya is a Lecturer in the Department of Education (English) at RTM Al-Kabir Technical University,Sylhet,Bangladesh.
+She is an educator and researcher with a focus on English Language Teaching and literary studies.
+
+<br> 
+She completed her Bachelor of Arts (B.A. Honours) and Master of Arts (M.A.) from Metropolitan University, Sylhet.
+
+She has teaching experience at Al Amanah Academy and Scholarshome South Surma, Sylhet. She has also completed professional training in TESOL Methodology (UMBC, U.S. Embassy program) and teacher development training from Arizona State University through the Online Professional English Network (OPEN).
+
+Her research interests include Diaspora Studies, Postcolonial Studies, Rabindranath Tagore studies, and English Language Teaching (ELT).
+She has presented research papers at national conferences and published academic abstracts and creative writings in different platforms, including Spillwords.com.
+<b>Having two published abstracts in different South Asian conferences, she has a fascination for academic research.</b>
+<br>
+She has also served as Vice President of the MU Speakers Club of English, showing her involvement in academic leadership and communication activities.
 </p>
-
-<h3>Profile</h3>
-<p>
-She is an academic professional with experience in teaching, research, and communication-based leadership roles.
-</p>
-
-<h3>Education & Training</h3>
-<p>
-Ms. Shahnaz Jasmeen Keya has obtained her B.A. (Honours) degree from Metropolitan University, Sylhet.
-</p>
-
-<p><b>She has also completed:</b></p>
-<ul>
-  <li>Teachers Training on TESOL Methodology delivered by University of Maryland, Baltimore County (US Embassy)</li>
-  <li>Course on Professional Development for Teachers Trainer provided by Arizona State University under Online Professional English Network</li>
-</ul>
-
-<h3>Previous Work Experience</h3>
-<p><b>She has previously worked as:</b></p>
-<ul>
-  <li>Teacher at Al Amanah Academy</li>
-  <li>Teacher at Scholarshome South Surma, Sylhet</li>
-  <li>Remote Administrator and Call Centre Executive, Community Care Worker, Stroke on Trent</li>
-</ul>
-
-<h3>Skills & Activities</h3>
-<p><b>She has strong skills in:</b></p>
-<ul>
-  <li>Communication</li>
-  <li>Analytical thinking</li>
-  <li>Research</li>
-  <li>Management</li>
-</ul>
-
-<p>
-She also served as Vice President of MU Speakers Club of English.
-</p>
-
-<h3>Research Interests</h3>
-<p><b>Her research interests include:</b></p>
-<ul>
-  <li>Diaspora Studies</li>
-  <li>Postcolonial Studies</li>
-  <li>Repository of Tagore</li>
-  <li>English Language Teaching</li>
-</ul>
-
-<p>
-She has also presented multiple academic abstracts in South Asian conferences.
-</p>
-
-<h3>Current Position</h3>
-<p>
-Lecturer, Department of Education (English)<br>
-RTM Al-Kabir Technical University (RTM-AKTU)<br>
-From 01/02/2026 to Present
-</p>
-
-    </div>
+</div>
+   
+    <div class="image">
     <img src="https://i.pinimg.com/736x/1c/dc/7c/1cdc7cac837b1c13c740c85de371b782.jpg"> <!------profile----->
 </div>
+</div>
 
-
-<!-- ARTICLES -->
 <div class="articles">
-    <h2>My Latest Articles</h2>
+    <h2>Public Articles</h2>
+
     <div class="grid">
+
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/08/39/a2/0839a26b96a447656216758f84c8927a.jpg">
-            <p>Article Title 1</p>
+            <img src="https://i.pinimg.com/1200x/c0/89/6a/c0896a8f2e95a5b66a2a6a47ecc245dd.jpg" alt="Patriarchy in a Modern Man">
+            <p>Patriarchy in a Modern Man: A Study of Satyajit Ray’s Mahanagar</p>
         </div>
+
         <div class="card">
-            <img src="https://i.pinimg.com/736x/b8/af/8f/b8af8fb0e939a2fd76ca7ef2bc647eb4.jpg">
-            <p>Article Title 2</p>
+            <img src="https://i.pinimg.com/1200x/27/bb/3a/27bb3a4c5a29ea76776bdcc0a2d8137c.jpg" alt="Bangla Marginalization">
+            <p>The Marginalization of Bangla among the English Medium Schools</p>
         </div>
+
         <div class="card">
-            <img src="https://i.pinimg.com/736x/b8/af/8f/b8af8fb0e939a2fd76ca7ef2bc647eb4.jpg ">
-            <p>Article Title 3</p>
+            <img src="https://i.pinimg.com/736x/c3/40/0b/c3400b0f7f430c8696b6c6ee37ebaa3f.jpg" alt="Bastobota">
+            <p>Bastobota</p>
         </div>
+
         <div class="card">
-            <img src="https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg">
-            <p>Article Title 4</p></div>
+            <img src="https://i.pinimg.com/736x/8c/30/15/8c3015ecdbf7f82171c9e9f6148d9571.jpg" alt="Durutto">
+            <p>Durutto</p>
+        </div>
+
         <div class="card">
-            <img src="https://i.pinimg.com/736x/77/de/45/77de452032e18741a68c165738eff48f.jpg">
-            <p>Article Title 5</p></div>
+            <img src="https://i.pinimg.com/1200x/55/2d/2f/552d2fdca140009e3fef7b594c420bac.jpg" alt="Kabita Tumi">
+            <p>Kabita Tumi</p>
+        </div>
+
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/08/39/a2/0839a26b96a447656216758f84c8927a.jpg ">
-            <p>Article Title 6</p></div>
+            <img src="Salty Eyes.jpg" alt="Salty Eyes">
+            <p>Salty Eyes</p>
+        </div>
+
     </div>
 </div>
 
-<!-- ACTIVITIES -->
-<div class="activities">
-    <h2>My Activities</h2>
-    <p><b>Where Teaching Meets Transformation</b></p>
-    <p><b>Shahnaz Keya</b></p>
-    <p>With a focus on fostering curiosity and lifelong learning...</p>
 
-    <div class="activity-box">Metropolitan University - Associate Professor (2024-Till Date)</div>
-    <div class="activity-box">Assistant Proctor (2024-2025)</div>
-    <div class="activity-box">Modern Language Association - Member (2020-Till Date)</div>
-    <div class="activity-box">Dean (Acting) School of Humanities & SS (2025-Till Date)</div>
+
+
+<div class="profile-section">
+
+    <!-- LEFT: SKILLS -->
+    <div class="skills">
+        <h2>Skills & Strengths</h2>
+
+        <ul>
+            <li>Strong Communication Skills</li>
+            <li>Analytical Thinking Ability</li>
+            <li>Research Skills</li>
+            <li>Academic Writing & Publication Experience</li>
+            <li>Management Skills</li>
+            <li>Leadership Experience (MU Speakers Club)</li>
+            <li>TESOL Methodology Training (University of Maryland, USA)</li>
+            <li>Professional Teacher Training (Arizona State University)</li>
+        </ul>
+    </div>
+
+    <!-- RIGHT: EXPERIENCE -->
+    <div class="experience">
+        <h2>Work Experience</h2>
+
+        <div class="job">
+            <h3>Lecturer (English)</h3>
+            <p>RTM Al-Kabir Technical University (RTM-AKTU)</p>
+            <span>01/02/2026 – Present</span>
+        </div>
+
+        <div class="job">
+            <h3>Teacher</h3>
+            <p>Al Amanah Academy, Sylhet</p>
+            <span>23/12/2023 – 24/01/2025</span>
+        </div>
+
+        <div class="job">
+            <h3>Teacher</h3>
+            <p>Scholarshome South Surma, Sylhet</p>
+            <span>01/08/2023 – 02/09/2023</span>
+        </div>
+
+        <div class="job">
+            <h3>Remote Administrator & Call Centre Executive</h3>
+            <p>Community Care Worker, Stoke-on-Trent</p>
+        </div>
+
+    </div>
+
 </div>
+
+
 
 <!-- FOOTER -->
 <footer>
