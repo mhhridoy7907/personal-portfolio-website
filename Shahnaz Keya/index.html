@@ -11,718 +11,655 @@
 
 <style>
 /* =======================
-   pc
+   GLOBAL RESET & BASE
 ======================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
-    background:#F2E3E3;
-    background-size: 400% 400%;
-    animation: bgMove 10s ease infinite;
-    color:#0f0f0f;
-    line-height:1.6;
-    overflow-x:hidden;
-}
-
-/* BACKGROUND ANIMATION */
-@keyframes bgMove{
-    0%{background-position:0% 50%;}
-    50%{background-position:100% 50%;}
-    100%{background-position:0% 50%;}
-}
-
-/* =======================
-   PAGE FADE
-======================= */
-@keyframes pageFade{
-    from{opacity:0; transform:translateY(30px);}
-    to{opacity:1; transform:translateY(0);}
-}
-
-body{
+    background: #F1E3E2;
+    color: #111;
+    line-height: 1.6;
+    overflow-x: hidden;
+    padding-top: 80px; 
     animation: pageFade 1s ease-in;
 }
 
+/* Background subtle animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #EFE6E8;
+    background-size: 400% 400%;
+    animation: bgMove 15s ease infinite;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes pageFade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* =======================
-   HEADER (GLASS + ANIMATED)
+   HEADER
 ======================= */
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 40px;
-
-    background: rgba(199, 158, 158, 0.7);
-    backdrop-filter: blur(10px);
-
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
-
-    position:sticky;
-    top:0;
-    z-index:1000;
-
-    animation: headerGlow 6s infinite;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: rgba(199, 158, 158, 0.88);
+    backdrop-filter: blur(12px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes headerGlow{
-    0%{box-shadow:0 0 10px #ffb6c1;}
-    50%{box-shadow:0 0 25px #ff2f6e;}
-    100%{box-shadow:0 0 10px #ffb6c1;}
+header .left a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 600;
+    margin: 0 12px;
+    transition: all 0.4s ease;
+    position: relative;
 }
 
-header a{
-    text-decoration:none;
-    color:#000;
-    font-weight:600;
-    margin:0 10px;
-    transition:0.4s;
+header .left a:hover {
+    color: #0051ff;
+    transform: scale(1.05);
+}
+
+header .left a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: #0051ff;;
+    transition: width 0.4s ease;
+}
+
+header .left a:hover::after {
+    width: 100%;
+}
+.section-title{
+    text-align:center;
+    font-size:32px;
+    margin-top:40px;
+    margin-bottom:10px;
+    color:#1a1919;
     position:relative;
-}
+    font:arial black;
 
-/* underline animation */
-header a::after{
-    content:'';
-    position:absolute;
-    left:0;
-    bottom:-5px;
-    width:0%;
-    height:2px;
-    background:#ff2f6e;
-    transition:0.4s;
-}
-
-header a:hover::after{
-    width:100%;
-}
-
-header a:hover{
-    color:#ff2f6e;
-    transform:scale(1.05);
 }
 
 /* =======================
    SOCIAL ICONS
 ======================= */
-.social a{
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    width:45px;
-    height:45px;
-    margin:0 5px;
-    border-radius:50%;
-    background:#fff;
-    color:#000;
-
-    transition:0.4s;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-
+.social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    margin: 0 6px;
+    border-radius: 50%;
+    background: #fff;
+    color: #000;
+    font-size: 18px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s ease;
     animation: floatIcon 3s infinite ease-in-out;
 }
 
-@keyframes floatIcon{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-6px);}
-    100%{transform:translateY(0);}
+.social a:hover {
+    transform: scale(1.2) rotate(8deg);
+    background: #0051ff;
+    color: #fff;
 }
 
-.social a:hover{
-    transform:scale(1.2) rotate(5deg);
-    background:#ff2f6e;
-    color:#fff;
+@keyframes floatIcon {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
 /* =======================
-   LOGO FLOAT
+   LOGO
 ======================= */
-.section2{
-    text-align:center;
-    padding:30px;
+.section2 {
+    text-align: center;
+    padding: 20px 0;
 }
 
-.section2 img.logo{
-    height:150px;
+.section2 img.logo {
+    height: 150px;
     animation: floatLogo 4s ease-in-out infinite;
 }
 
-@keyframes floatLogo{
-    0%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-    100%{transform:translateY(0);}
+@keyframes floatLogo {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
 
 /* =======================
-   COVER SECTION
+   COVER SECTION (Full Image + Strong Black Shadow/Overlay)
 ======================= */
-.cover{
-    position:relative;
-    width:100%;
-    height:420px;
-    overflow:hidden;
+.cover {
+    position: relative;
+    width: 100%;
+    max-width: 1352px;
+    height: 300px;
+    margin: 30px auto;
+    overflow: hidden;
+    background: #000;
 }
 
-.cover img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    animation: zoomSlow 10s infinite alternate;
+/* Image */
+.cover img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left center;
+    transform: scale(0.93);
+    transition: transform 1.2s ease;
 }
 
-@keyframes zoomSlow{
-    from{transform:scale(1);}
-    to{transform:scale(1.1);}
+.cover img:hover {
+    transform: scale(0.97);
 }
 
-/* COVER TEXT ANIMATION */
-.cover-text{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    color:#fff;
-    font-size:28px;
-    font-weight:bold;
-    text-align:center;
-
-    padding:15px 25px;
-    background:rgba(0,0,0,0.4);
-    border-radius:12px;
-
-    animation: textPop 3s infinite, glow 2s infinite;
+/* ==================== 
+   STRONG BLACK SHADOW / OVERLAY 
+======================= */
+.cover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.75),   /* Left side e beshi dark */
+        rgba(0, 0, 0, 0.45),   /* Middle e medium */
+        rgba(0, 0, 0, 0.35)    /* Right side e kom */
+    );
+    z-index: 1;
 }
 
-@keyframes textPop{
-    0%{opacity:0; transform:translate(-50%,-60%) scale(0.8);}
-    50%{opacity:1; transform:translate(-50%,-50%) scale(1);}
-    100%{opacity:0; transform:translate(-50%,-40%) scale(0.8);}
+/* Optional: Extra dark vignette effect (corner e beshi shadow) */
+.cover::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(
+        circle at center,
+        transparent 40%,
+        rgba(0, 0, 0, 0.4) 100%
+    );
+    z-index: 1;
+    pointer-events: none;
 }
-
-@keyframes glow{
-    0%{text-shadow:0 0 5px #fff;}
-    50%{text-shadow:0 0 20px #00eaff;}
-    100%{text-shadow:0 0 5px #fff;}
-}
-
-
 
 /* =======================
-   GLOBAL RESET
+   COVER TEXT - CENTER
 ======================= */
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+.cover-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(12px);
+    color: #fff;
+    padding: 22px 42px;
+    border-radius: 16px;
+    font-size: 23px;
+    font-weight: 700;
+    text-align: center;
+    max-width: 75%;
+    box-shadow: 0 12px 45px rgba(0,0,0,0.7);
+    z-index: 2;
+    line-height: 1.45;
 }
 
-body{
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg,#f2e3e3,#e6f0ff);
-    color:#111;
-    overflow-x:hidden;
-}
-/*/* =======================
-   ABOUT SECTION (GLASS)
-======================= */
-.box{
-    width:85%;
-    margin:80px auto;
-    padding:40px;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start; /* 🔥 key fix */
-
-    gap:60px;
-
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(18px);
-    border-radius:25px;
-
-    box-shadow:0 0 40px rgba(0,0,0,0.15);
-    border:1px solid rgba(255,255,255,0.3);
-}
-
-/* LEFT TEXT */
-.box .text{
-    flex:1;
-    text-align:justify;
-}
-
-.box .text h2{
-    font-size:28px;
-    color:#ff2f6e;
-    margin-bottom:15px;
-    position:relative;
-}
-
-.box .text h2::after{
-    content:'';
-    width:70px;
-    height:3px;
-    background:#ff2f6e;
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    border-radius:10px;
-}
-
-.box .text p{
-    font-size:15px;
-    line-height:1.8;
-    margin-bottom:12px;
-    text-align:justify;
-}
-
-/* RIGHT IMAGE (TOP ALIGNED AUTOMATIC) */
-.box .image{
-    flex:1;
-    display:flex;
-    justify-content:center;
-    align-items:flex-start; 
-}
-
-.box .image img{
-    width:320px;
-    height:320px;
-    object-fit:cover;
-
-    border-radius:20px;
-
-    transition:0.4s;
-}
-
-.box .image img:hover{
-    transform:scale(1.05);
-}
-
-
-
-/* =======================
-   ANIMATION
-======================= */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
+/* Responsive */
+@media (max-width: 1400px) {
+    .cover {
+        max-width: 100%;
+        height: 280px;
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
+    .cover-text {
+        font-size: 21px;
+        padding: 20px 35px;
+    }
+}
+
+@media (max-width: 900px) {
+    .cover {
+        height: 240px;
+    }
+    .cover-text {
+        font-size: 18.5px;
+        padding: 16px 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .cover {
+        height: 210px;
+    }
+    .cover-text {
+        font-size: 16.5px;
+        padding: 13px 22px;
     }
 }
 
 /* =======================
-   RESPONSIVE
+   ABOUT SECTION
 ======================= */
-@media(max-width:900px){
-    .box{
-        flex-direction:column;
-        text-align:center;
-        padding:25px;
-    }
-
-    .box .text{
-        text-align:center;
-    }
-
-    .box .image img{
-        width:250px;
-        height:250px;
-    }
+.box {
+    width: 85%;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.35);
 }
 
-
-
-
-/* =======================
-   ANIMATION
-======================= */
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(50px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.box .text {
+    flex: 1;
 }
 
-/* =======================
-   RESPONSIVE
-======================= */
-@media(max-width:900px){
-    .box{
-        flex-direction:column;
-        text-align:center;
-    }
-
-    .box img{
-        width:250px;
-        height:250px;
-    }
-
-    .box .text{
-        text-align:center;
-    }
+.box .text h2 {
+    font-size: 29px;
+    color: #0051ff;
+    margin-bottom: 18px;
+    position: relative;
 }
 
-/* =======================
-   BUTTON (RIPPLE STYLE)
-======================= */
-.btn{
-    margin-top:12px;
-    padding:12px 25px;
-    background:linear-gradient(45deg,#000,#333);
-    color:#fff;
-    border:none;
-    cursor:pointer;
-    border-radius:8px;
-    transition:0.4s;
-    position:relative;
-    overflow:hidden;
+.box .text h2::after {
+    content: '';
+    width: 75px;
+    height: 3px;
+    background: #0051ff;
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    border-radius: 10px;
 }
 
-.btn:hover{
-    background:linear-gradient(45deg,#ff2f6e,#ff6b81);
-    transform:translateY(-3px);
+.box .text p {
+    font-size: 15.5px;
+    line-height: 1.85;
+    text-align: justify;
+}
+
+.box .image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.box .image img {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: 0.4s ease;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.box .image img:hover {
+    transform: scale(1.06);
 }
 
 /* =======================
-   ARTICLES SECTION
+   ARTICLES SECTION (3 Columns + Center)
 ======================= */
-.articles{
-    padding:60px;
+.articles {
+    padding: 80px 20px;
 }
 
-/* TITLE */
-.articles h2{
-    text-align:center;
-    margin-bottom:25px;
-    color:#ff2f6e;
-    position:relative;
+.articles h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #0051ff;
+    position: relative;
+    font-size: 32px;
 }
 
-/* underline center */
-.articles h2::after{
-    content:'';
-    width:80px;
-    height:3px;
-    background:#ff2f6e;
-    position:absolute;
-    left:50%;
-    transform:translateX(-50%);
-    bottom:-8px;
-    border-radius:10px;
+.articles h2::after {
+    content: '';
+    width: 85px;
+    height: 3px;
+    background: #0051ff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    border-radius: 10px;
 }
 
-/* =======================
-   GRID (CENTERED)
-======================= */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(250px, 280px));
-    justify-content:center;
-    gap:20px;
+/* Grid - 3 ta 3 ta kore + Center */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+    justify-content: center;  
+    gap: 28px;
+    max-width: 1100px;         
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
-/* =======================
-   CARD
-======================= */
-.card{
-    background:#fff;
-    border-radius:15px;
-    overflow:hidden;
-
-    width:100%;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    transition:0.3s;
-
-    animation: fadeUp 0.8s ease;
+.card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    animation: fadeUp 0.9s ease forwards;
+    max-width: 340px;        
+    margin: 0 auto;            
 }
 
-/* stagger animation */
-.card:nth-child(2){animation-delay:0.1s;}
-.card:nth-child(3){animation-delay:0.2s;}
-.card:nth-child(4){animation-delay:0.3s;}
-.card:nth-child(5){animation-delay:0.4s;}
-.card:nth-child(6){animation-delay:0.5s;}
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.22);
+}
 
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
+.card img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.card p {
+    padding: 16px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #222;
+    text-align: center;        
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Fade animation */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-/* =======================
-   IMAGE (YouTube style)
-======================= */
-.card img{
-    width:100%;
-    aspect-ratio:16/9;
-    object-fit:cover;
-    display:block;
-    transition:0.4s;
-}
-
-/* hover zoom */
-.card:hover img{
-    transform:scale(1.08);
-}
-
-/* =======================
-   TEXT
-======================= */
-.card p{
-    padding:12px;
-    font-weight:600;
-    font-size:14px;
-}
-
-/* =======================
-   HOVER EFFECT
-======================= */
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(0,0,0,0.2);
-}
-
-/* =======================
-   RESPONSIVE
-======================= */
-@media(max-width:768px){
-    .articles{
-        padding:30px;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-}
-
-
-/* ===========skill ========/*/
-
-.profile-section{
-    width:85%;
-    margin:80px auto;
-    display:flex;
-    gap:40px;
-
-    padding:40px;
-
-    background:rgba(255,255,255,0.15);
-    backdrop-filter:blur(20px);
-    border-radius:25px;
-
-    box-shadow:0 0 40px rgba(0,0,0,0.15);
-
-    animation: sectionFade 1.2s ease-in-out;
-}
-
-/* =======================
-   SECTION FADE IN
-======================= */
-@keyframes sectionFade{
-    from{
-        opacity:0;
-        transform:translateY(60px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
 /* =======================
-   LEFT - SKILLS
+   SKILLS & EXPERIENCE SECTION
 ======================= */
-.skills{
-    flex:1;
-    animation: slideLeft 1s ease;
+.profile-section {
+    width: 85%;
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    gap: 50px;
+    padding: 45px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
 }
 
-@keyframes slideLeft{
-    from{
-        opacity:0;
-        transform:translateX(-60px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+.skills, .experience {
+    flex: 1;
 }
 
-.skills h2{
-    color:#ff2f6e;
-    margin-bottom:15px;
-    position:relative;
+.skills h2, .experience h2 {
+    color: #0051ff;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 28px;
 }
 
-.skills h2::after{
-    content:'';
-    width:60px;
-    height:3px;
-    background:#ff2f6e;
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    border-radius:10px;
+.skills h2::after, .experience h2::after {
+    content: '';
+    width: 65px;
+    height: 3px;
+    background: #0051ff;
+    position: absolute;
+    left: 0;
+    bottom: -9px;
+    border-radius: 10px;
 }
 
-.skills ul{
-    list-style:none;
+.skills ul {
+    list-style: none;
 }
 
-.skills ul li{
-    padding:12px 10px;
-    margin:8px 0;
-
-    background:rgba(255,255,255,0.4);
-    border-radius:10px;
-
-    transition:0.4s;
-    cursor:pointer;
-
-    position:relative;
-    overflow:hidden;
+.skills ul li {
+    padding: 14px 16px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.45);
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    cursor: pointer;
 }
 
-/* hover glow + slide */
-.skills ul li:hover{
-    transform:translateX(10px);
-    background:#fff;
-    box-shadow:0 8px 20px rgba(255,47,110,0.2);
-    color:#ff2f6e;
+.skills ul li:hover {
+    transform: translateX(12px);
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(135, 206, 235, 0.25);
+    color: #0051ff;
+}
+
+.job {
+    background: #fff;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.job:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0, 81, 255, 0.25);
+}
+
+.job h3 {
+    color: #0051ff;
+    margin-bottom: 6px;
 }
 
 /* =======================
-   RIGHT - EXPERIENCE
+   CONTACT SECTION
 ======================= */
-.experience{
-    flex:1;
-    animation: slideRight 1s ease;
+#contact {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
 }
 
-@keyframes slideRight{
-    from{
-        opacity:0;
-        transform:translateX(60px);
-    }
-    to{
-        opacity:1;
-        transform:translateX(0);
-    }
+.contact {
+    text-align: center;
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    padding: 40px 30px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
 }
 
-.experience h2{
-    color:#ff2f6e;
-    margin-bottom:15px;
-    position:relative;
+.contact h2 {
+    color: #0051ff;
+    margin-bottom: 25px;
+    position: relative;
+    font-size: 30px;
 }
 
-.experience h2::after{
-    content:'';
-    width:60px;
-    height:3px;
-    background:#ff2f6e;
-    position:absolute;
-    left:0;
-    bottom:-8px;
-    border-radius:10px;
+
+.email {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #333;
 }
 
-/* JOB CARD */
-.job{
-    background:#fff;
-    padding:15px;
-    margin-bottom:15px;
-    border-radius:12px;
-
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-
-    transition:0.4s ease;
-    position:relative;
-    overflow:hidden;
-
-    animation: fadeUp 0.8s ease;
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
 }
 
-/* stagger effect */
-.job:nth-child(2){ animation-delay:0.2s; }
-.job:nth-child(3){ animation-delay:0.4s; }
-.job:nth-child(4){ animation-delay:0.6s; }
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(40px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+.social-buttons .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
-/* hover effect */
-.job:hover{
-    transform:translateY(-8px) scale(1.02);
-    box-shadow:0 15px 30px rgba(255,47,110,0.25);
-}
+.wa { background: #25D366; }
+.fb { background: #1877F2; }
+.ln { background: #0A66C2; }
 
-/* glow border effect */
-.job::before{
-    content:'';
-    position:absolute;
-    width:100%;
-    height:100%;
-    top:0;
-    left:-100%;
-    background:linear-gradient(120deg,transparent,rgba(255,47,110,0.2),transparent);
-    transition:0.5s;
-}
-
-.job:hover::before{
-    left:100%;
+.social-buttons .btn:hover {
+    transform: scale(1.04);
+    opacity: 0.95;
 }
 
 /* =======================
-   RESPONSIVE
+   FOOTER
 ======================= */
-@media(max-width:900px){
-    .profile-section{
-        flex-direction:column;
-    }
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #222;
+    color: #ddd;
+    font-size: 14px;
+    margin-top: 40px;
 }
 
 /* =======================
-   skill xxxx========/*/
+   RESPONSIVE DESIGN
+======================= */
+@media (max-width: 900px) {
+    .box, .profile-section {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px;
+        gap: 40px;
+    }
 
+    .box .image img {
+        width: 260px;
+        height: 260px;
+    }
 
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .cover {
+        height: 380px;
+    }
+
+    .cover-text {
+        font-size: 20px;
+        padding: 14px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .articles, #contact {
+        padding: 40px 15px;
+    }
+}
+
+/* Fade up animation for cards & jobs */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 </style>    
 </head>
 
 <body>
-
+<section id="home">
 <!-- HEADER -->
 <header>
     <div class="left">
-        <a href="#">Home</a>
-        <a href="#">Blog</a>
-        <a href="#">Publications</a>
-        <a href="#">Conference Papers</a>
-        <a href="#">Poems</a>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#articles">Publications</a>
+        <a href="#skills">Skills</a>
+        <a href="#articles">Poems</a >
+        <a href="#contact">Contact</a>
     </div>
+
+
+
 
     <!-- SOCIAL ICONS -->
     <div class="social">
@@ -740,48 +677,60 @@ body{
 
 <!-- COVER -->
 <div class="cover">
-    <img src="https://i.pinimg.com/736x/b8/af/8f/b8af8fb0e939a2fd76ca7ef2bc647eb4.jpg">
-
+    <img src="https://i.pinimg.com/736x/04/66/7e/04667eccb9fd8a676c180f4075c35d89.jpg">
+    
+    <!-- TEXT -->
     <div class="cover-text">
-        Learning is the rhythm that guides us through life’s dance
+        <span id="typing"></span>
     </div>
 </div>
 
+</div>
+    
+</div>
+</section>
 
+
+<section id="about">
+    <h1 class="section-title">About</h1>
 <div class="box">
      <div class="text">
 
 <h2>About Shahnaz Jasmeen Keya</h2>
 
-<p>
-Shahnaz Jasmeen Keya is a Lecturer in the Department of Education (English) at RTM Al-Kabir Technical University,Sylhet,Bangladesh.
-She is an educator and researcher with a focus on English Language Teaching and literary studies.
+    <p>
+    Shahnaz Jasmeen Keya is a Lecturer in the Department of Education (English) at RTM Al-Kabir Technical University,Sylhet,Bangladesh.
+    She is an educator and researcher with a focus on English Language Teaching and literary studies.
 
-<br> 
-She completed her Bachelor of Arts (B.A. Honours) and Master of Arts (M.A.) from Metropolitan University, Sylhet.
+    <br> 
+    She completed her Bachelor of Arts (B.A. Honours) and Master of Arts (M.A.) from Metropolitan University, Sylhet.
 
-She has teaching experience at Al Amanah Academy and Scholarshome South Surma, Sylhet. She has also completed professional training in TESOL Methodology (UMBC, U.S. Embassy program) and teacher development training from Arizona State University through the Online Professional English Network (OPEN).
+    She has teaching experience at Al Amanah Academy and Scholarshome South Surma, Sylhet.
+    She has also completed professional training in TESOL Methodology  and teacher development training from Arizona State University through the Online Professional English Network (OPEN).
 
-Her research interests include Diaspora Studies, Postcolonial Studies, Rabindranath Tagore studies, and English Language Teaching (ELT).
-She has presented research papers at national conferences and published academic abstracts and creative writings in different platforms, including Spillwords.com.
-<b>Having two published abstracts in different South Asian conferences, she has a fascination for academic research.</b>
-<br>
-She has also served as Vice President of the MU Speakers Club of English, showing her involvement in academic leadership and communication activities.
-</p>
+    Her research interests include Diaspora Studies, Postcolonial Studies, Rabindranath Tagore studies, and English Language Teaching (ELT).
+    She has presented research papers at national conferences and published academic abstracts and creative writings in different platforms, including Spillwords.com.
+    Having published abstracts in different South Asian conferences, she has a fascination for academic research.
+  
+    She has also served as Vice President of the MU Speakers Club of English, showing her involvement in academic leadership and communication activities.
+    </p>
 </div>
    
     <div class="image">
-    <img src="https://i.pinimg.com/736x/1c/dc/7c/1cdc7cac837b1c13c740c85de371b782.jpg"> <!------profile----->
+    <img src="https://i.pinimg.com/736x/e8/77/ca/e877ca057e2735320d3c0130f0240c2a.jpg"> <!------profile----->
 </div>
 </div>
+</section>
 
+
+<section id="articles">
 <div class="articles">
-    <h2>Public Articles</h2>
+    <h2>Publications </h2>
 
     <div class="grid">
 
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/c0/89/6a/c0896a8f2e95a5b66a2a6a47ecc245dd.jpg" alt="Patriarchy in a Modern Man">
+            <img src="https://i.pinimg.com/736x/56/a1/5e/56a15ef237c3f8836d6a6593f2141419.jpg" alt="Patriarchy in a Modern Man">
             <p>Patriarchy in a Modern Man: A Study of Satyajit Ray’s Mahanagar</p>
         </div>
 
@@ -801,12 +750,12 @@ She has also served as Vice President of the MU Speakers Club of English, showin
         </div>
 
         <div class="card">
-            <img src="https://i.pinimg.com/1200x/55/2d/2f/552d2fdca140009e3fef7b594c420bac.jpg" alt="Kabita Tumi">
+            <img src="https://i.pinimg.com/736x/74/a5/14/74a514f33552bd1264c05d7c6e86a842.jpg" alt="Kabita Tumi">
             <p>Kabita Tumi</p>
         </div>
 
         <div class="card">
-            <img src="Salty Eyes.jpg" alt="Salty Eyes">
+            <img src="https://i.pinimg.com/736x/1f/a5/8c/1fa58cf07319912577b259e429ceadc4.jpg" alt="Salty Eyes">
             <p>Salty Eyes</p>
         </div>
 
@@ -815,7 +764,7 @@ She has also served as Vice President of the MU Speakers Club of English, showin
 
 
 
-
+<section id="skills">
 <div class="profile-section">
 
     <!-- LEFT: SKILLS -->
@@ -865,11 +814,57 @@ She has also served as Vice President of the MU Speakers Club of English, showin
 
 </div>
 
+</section>
 
 
-<!-- FOOTER -->
+<section id="contact">
+<div class="contact">
+
+    <h2>Contact Me</h2>
+
+    <div class="contact-center">
+
+        <p class="email">@gmail.com</p>
+
+        <div class="social-buttons">
+
+            <a href="https://wa.me/8801748551830" target="_blank" class="btn wa">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+
+            <a href="https://www.facebook.com/shahnazkeya.keyamony" target="_blank" class="btn fb">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+
+            <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/" target="_blank" class="btn ln">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+
+        </div>
+
+    </div>
+</div>
+</section>
+
 <footer>
     Copyright © 2026 | shahnazkeya.com
 </footer>
+
+<script>
+const text = "Learning is the rhythm that guides us through life’s dance";
+let i = 0;
+
+function typingEffect(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typingEffect, 80);
+    }
+}
+
+typingEffect();
+</script>
+
+
 </body>
 </html>
