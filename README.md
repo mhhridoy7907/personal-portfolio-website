@@ -23,22 +23,30 @@ A modern, responsive, and animated personal portfolio website built using **HTML
 
 ## 🛠️ Technologies Used
 
-- HTML5
-- CSS3
-- Font Awesome Icons
-- Google Fonts (optional if added)
 
+| Technology | Purpose |
+|---|---|
+| **HTML5** | Semantic markup and structure |
+| **CSS3** | Styling with gradients and animations |
+| **JavaScript** | logic |
+| **App Script** | Backend |
+| **Google Sheet** | Data Base |
 
 ---
 
-## 📌 Sections Included
+## 📌 Website Sections
 
-- Header Navigation
-- Hero Cover Section
-- About Me Section
-- Latest Articles Grid
-- Activities Timeline
-- Footer
+||
+|------|
+| Header Navigation |
+| Hero Cover Section |
+| About Me Section |
+| Latest Articles Grid |
+| Activities Timeline |
+| Footer |
+| Contact |
+| Message |
+
 
 ---
 
