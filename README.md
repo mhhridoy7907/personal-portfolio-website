@@ -9,15 +9,15 @@ A modern, responsive, and animated personal portfolio website built using **HTML
 
 ## ✨ Features
 
-- 💻 Fully responsive design (mobile + desktop)
-- 🎨 Modern UI with smooth animations
-- 🧭 Sticky navigation and animated menu hover effects
-- 🖼️ Hero cover section with animated quote text
-- 👩‍🏫 About section with personal introduction
-- 📰 Articles grid layout
-- 🏛️ Activities section with clean card design
-- 🔗 Social media icon integration (Facebook, LinkedIn, WhatsApp)
-- ⚡ Lightweight (no frameworks used)
+-  Fully responsive design  "Desktop"
+-  Modern UI with smooth animations
+-  Sticky navigation and animated menu hover effects
+-  Hero cover section with animated quote text
+-  About section with personal introduction
+-  Articles grid layout
+-  Activities section with clean card design
+-  Social media icon integration (Facebook, LinkedIn, WhatsApp)
+-  Lightweight (no frameworks used)
 
 ---
 
@@ -27,15 +27,6 @@ A modern, responsive, and animated personal portfolio website built using **HTML
 - CSS3
 - Font Awesome Icons
 - Google Fonts (optional if added)
-
----
-
-## 📂 Project Structure
-
-` Shahnaz Keya
-│---index.html
-│----style.css
-│-----funtion.js`
 
 
 ---
@@ -71,7 +62,7 @@ This portfolio is designed for:
 
 ---
 
-![Portfolio Preview](https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg)
+![Preview](https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg)
 
 
 
