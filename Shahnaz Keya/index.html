@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shahnaz Jasmeen Keya</title>
+<title>Shahnaz Jasmeen Keya - Educator & Researcher</title>
 <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/cc/4f/b6/cc4fb600729aa336a1051df67b156a21.jpg">
 
 <!-- Font Awesome (icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
 /* =======================
@@ -19,40 +22,18 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background: #F1E3E2;
-    color: #111;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f0ec 0%, #ede6e1 100%);
+    color: #2c2c2c;
     line-height: 1.6;
     overflow-x: hidden;
-    padding-top: 80px; 
-    animation: pageFade 1s ease-in;
-}
-
-/* Background subtle animation */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #EFE6E8;
-    background-size: 400% 400%;
-    animation: bgMove 15s ease infinite;
-    z-index: -1;
-    opacity: 0.6;
-}
-
-@keyframes bgMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes pageFade {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    padding-top: 70px;
+    min-height: 100vh;
 }
 
 /* =======================
@@ -62,118 +43,132 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 40px;
-    background: rgba(199, 158, 158, 0.88);
-    backdrop-filter: blur(12px);
+    padding: 12px 20px;
+    background: rgba(240, 180, 180, 0.95);
+    backdrop-filter: blur(15px);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+header .left {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
 }
 
 header .left a {
     text-decoration: none;
     color: #000;
     font-weight: 600;
-    margin: 0 12px;
-    transition: all 0.4s ease;
+    font-size: 13px;
+    padding: 6px 12px;
+    margin: 0 4px;
+    transition: all 0.3s ease;
     position: relative;
+    border-radius: 6px;
 }
 
 header .left a:hover {
-    color: #0051ff;
-    transform: scale(1.05);
+    color: #fff;
+    background: #d97070;
+    transform: translateY(-2px);
 }
 
 header .left a::after {
     content: '';
     position: absolute;
     left: 0;
-    bottom: -6px;
+    bottom: -4px;
     width: 0;
     height: 2px;
-    background: #0051ff;;
-    transition: width 0.4s ease;
+    background: #d97070;
+    transition: width 0.3s ease;
 }
 
 header .left a:hover::after {
     width: 100%;
 }
-.section-title{
-    text-align:center;
-    font-size:32px;
-    margin-top:40px;
-    margin-bottom:10px;
-    color:#1a1919;
-    position:relative;
-    font:arial black;
-
-}
 
 /* =======================
    SOCIAL ICONS
 ======================= */
+.social {
+    display: flex;
+    gap: 8px;
+}
+
 .social a {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 45px;
-    height: 45px;
-    margin: 0 6px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #fff;
-    color: #000;
-    font-size: 18px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.4s ease;
-    animation: floatIcon 3s infinite ease-in-out;
+    color: #d97070;
+    font-size: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
 .social a:hover {
-    transform: scale(1.2) rotate(8deg);
-    background: #0051ff;
+    transform: scale(1.15) rotate(-5deg);
+    background: #d97070;
     color: #fff;
-}
-
-@keyframes floatIcon {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    box-shadow: 0 6px 20px rgba(217, 112, 112, 0.4);
 }
 
 /* =======================
-   LOGO
+   SECTION 2 - LOGO
 ======================= */
 .section2 {
     text-align: center;
     padding: 20px 0;
+    animation: fadeInDown 0.8s ease;
 }
 
 .section2 img.logo {
-    height: 150px;
+    height: 130px;
+    border-radius: 50%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     animation: floatLogo 4s ease-in-out infinite;
 }
 
 @keyframes floatLogo {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* =======================
-   COVER SECTION (Full Image + Strong Black Shadow/Overlay)
+   COVER SECTION
 ======================= */
 .cover {
     position: relative;
-    width: 100%;
-    max-width: 1352px;
-    height: 300px;
-    margin: 30px auto;
+    width: 95%;
+    max-width: 1100px;
+    height: 280px;
+    margin: 20px auto;
     overflow: hidden;
+    border-radius: 20px;
     background: #000;
 }
 
-/* Image */
 .cover img {
     position: absolute;
     left: 0;
@@ -181,18 +176,13 @@ header .left a:hover::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: left center;
-    transform: scale(0.93);
     transition: transform 1.2s ease;
 }
 
-.cover img:hover {
-    transform: scale(0.97);
+.cover:hover img {
+    transform: scale(1.03);
 }
 
-/* ==================== 
-   STRONG BLACK SHADOW / OVERLAY 
-======================= */
 .cover::after {
     content: "";
     position: absolute;
@@ -200,103 +190,81 @@ header .left a:hover::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.75),   /* Left side e beshi dark */
-        rgba(0, 0, 0, 0.45),   /* Middle e medium */
-        rgba(0, 0, 0, 0.35)    /* Right side e kom */
-    );
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
     z-index: 1;
 }
 
-/* Optional: Extra dark vignette effect (corner e beshi shadow) */
-.cover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(
-        circle at center,
-        transparent 40%,
-        rgba(0, 0, 0, 0.4) 100%
-    );
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* =======================
-   COVER TEXT - CENTER
-======================= */
 .cover-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.72);
-    backdrop-filter: blur(12px);
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
     color: #fff;
-    padding: 22px 42px;
-    border-radius: 16px;
-    font-size: 23px;
-    font-weight: 700;
+    padding: 25px 40px;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 600;
     text-align: center;
-    max-width: 75%;
-    box-shadow: 0 12px 45px rgba(0,0,0,0.7);
+    max-width: 85%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
     z-index: 2;
-    line-height: 1.45;
+    line-height: 1.5;
 }
 
-/* Responsive */
-@media (max-width: 1400px) {
-    .cover {
-        max-width: 100%;
-        height: 280px;
-    }
-    .cover-text {
-        font-size: 21px;
-        padding: 20px 35px;
-    }
+/* =======================
+   SECTION TITLE
+======================= */
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    margin: 50px 20px 30px;
+    color: #2c2c2c;
+    position: relative;
+    font-weight: 700;
 }
 
-@media (max-width: 900px) {
-    .cover {
-        height: 240px;
-    }
-    .cover-text {
-        font-size: 18.5px;
-        padding: 16px 28px;
-    }
-}
-
-@media (max-width: 600px) {
-    .cover {
-        height: 210px;
-    }
-    .cover-text {
-        font-size: 16.5px;
-        padding: 13px 22px;
-    }
+.section-title::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #d97070, #e8a8a8);
+    margin: 12px auto 0;
+    border-radius: 2px;
 }
 
 /* =======================
    ABOUT SECTION
 ======================= */
 .box {
-    width: 85%;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 45px;
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px 30px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 60px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(18px);
-    border-radius: 25px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    gap: 40px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: slideInUp 0.8s ease;
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .box .text {
@@ -304,27 +272,18 @@ header .left a:hover::after {
 }
 
 .box .text h2 {
-    font-size: 29px;
-    color: #0051ff;
-    margin-bottom: 18px;
-    position: relative;
-}
-
-.box .text h2::after {
-    content: '';
-    width: 75px;
-    height: 3px;
-    background: #0051ff;
-    position: absolute;
-    left: 0;
-    bottom: -9px;
-    border-radius: 10px;
+    font-size: 28px;
+    color: #d97070;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .box .text p {
-    font-size: 15.5px;
-    line-height: 1.85;
+    font-size: 14px;
+    line-height: 1.9;
     text-align: justify;
+    color: #444;
 }
 
 .box .image {
@@ -335,100 +294,75 @@ header .left a:hover::after {
 }
 
 .box .image img {
-    width: 320px;
-    height: 320px;
-    object-fit: cover;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 15px;
     transition: 0.4s ease;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 30px rgba(217, 112, 112, 0.2);
 }
 
 .box .image img:hover {
-    transform: scale(1.06);
+    transform: scale(1.05) translateY(-5px);
+    box-shadow: 0 18px 40px rgba(217, 112, 112, 0.3);
 }
 
 /* =======================
-   ARTICLES SECTION (3 Columns + Center)
+   PUBLICATIONS SECTION
 ======================= */
 .articles {
-    padding: 80px 20px;
+    padding: 60px 20px;
 }
 
 .articles h2 {
     text-align: center;
-    margin-bottom: 40px;
-    color: #0051ff;
-    position: relative;
-    font-size: 32px;
+    margin-bottom: 45px;
+    color: #2c2c2c;
+    font-size: 36px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .articles h2::after {
     content: '';
-    width: 85px;
-    height: 3px;
-    background: #0051ff;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -10px;
-    border-radius: 10px;
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #d97070, #e8a8a8);
+    margin: 15px auto 0;
+    border-radius: 2px;
 }
 
-/* Grid - 3 ta 3 ta kore + Center */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-    justify-content: center;  
-    gap: 28px;
-    max-width: 1100px;         
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 .card {
     background: #fff;
-    border-radius: 16px;
+    border-radius: 15px;
     overflow: hidden;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
-    animation: fadeUp 0.9s ease forwards;
-    max-width: 340px;        
-    margin: 0 auto;            
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
 }
 
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.22);
-}
+.card:nth-child(1) { animation-delay: 0.1s; }
+.card:nth-child(2) { animation-delay: 0.2s; }
+.card:nth-child(3) { animation-delay: 0.3s; }
+.card:nth-child(4) { animation-delay: 0.4s; }
+.card:nth-child(5) { animation-delay: 0.5s; }
+.card:nth-child(6) { animation-delay: 0.6s; }
 
-.card img {
-    width: 100%;
-    aspect-ratio: 16/9;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-}
-
-.card:hover img {
-    transform: scale(1.08);
-}
-
-.card p {
-    padding: 16px 18px;
-    font-weight: 600;
-    font-size: 15px;
-    color: #222;
-    text-align: center;        
-    min-height: 52px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Fade animation */
 @keyframes fadeUp {
     from {
         opacity: 0;
-        transform: translateY(50px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -436,20 +370,51 @@ header .left a:hover::after {
     }
 }
 
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 45px rgba(217, 112, 112, 0.25);
+}
+
+.card img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.1);
+}
+
+.card p {
+    padding: 18px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #2c2c2c;
+    text-align: center;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.5;
+}
+
 /* =======================
-   SKILLS & EXPERIENCE SECTION
+   SKILLS & EXPERIENCE
 ======================= */
 .profile-section {
-    width: 85%;
-    max-width: 1200px;
-    margin: 60px auto;
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
     display: flex;
-    gap: 50px;
-    padding: 45px;
-    background: rgba(255, 255, 255, 0.18);
+    gap: 40px;
+    padding: 40px 30px;
+    background: rgba(255, 255, 255, 0.75);
     backdrop-filter: blur(20px);
-    border-radius: 25px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: slideInUp 0.8s ease;
 }
 
 .skills, .experience {
@@ -457,21 +422,11 @@ header .left a:hover::after {
 }
 
 .skills h2, .experience h2 {
-    color: #0051ff;
-    margin-bottom: 20px;
-    position: relative;
-    font-size: 28px;
-}
-
-.skills h2::after, .experience h2::after {
-    content: '';
-    width: 65px;
-    height: 3px;
-    background: #0051ff;
-    position: absolute;
-    left: 0;
-    bottom: -9px;
-    border-radius: 10px;
+    color: #d97070;
+    margin-bottom: 25px;
+    font-size: 24px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
 .skills ul {
@@ -480,44 +435,62 @@ header .left a:hover::after {
 
 .skills ul li {
     padding: 14px 16px;
-    margin: 10px 0;
-    background: rgba(255, 255, 255, 0.45);
-    border-radius: 12px;
-    transition: all 0.4s ease;
+    margin: 12px 0;
+    background: linear-gradient(135deg, #f8f0f0, #fff);
+    border-left: 4px solid #d97070;
+    border-radius: 8px;
+    transition: all 0.3s ease;
     cursor: pointer;
+    font-size: 14px;
+    color: #444;
 }
 
 .skills ul li:hover {
-    transform: translateX(12px);
-    background: #fff;
-    box-shadow: 0 8px 20px rgba(135, 206, 235, 0.25);
-    color: #0051ff;
+    transform: translateX(10px);
+    background: linear-gradient(135deg, #ffe8e8, #fff);
+    box-shadow: 0 8px 20px rgba(217, 112, 112, 0.2);
+    color: #d97070;
 }
 
 .job {
-    background: #fff;
+    background: linear-gradient(135deg, #f8f0f0, #fff);
     padding: 18px;
-    margin-bottom: 18px;
-    border-radius: 14px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 4px solid #d97070;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
 }
 
 .job:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 81, 255, 0.25);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(217, 112, 112, 0.2);
 }
 
 .job h3 {
-    color: #0051ff;
+    color: #d97070;
     margin-bottom: 6px;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.job p {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.job span {
+    font-size: 12px;
+    color: #999;
+    font-style: italic;
 }
 
 /* =======================
    CONTACT SECTION
 ======================= */
 #contact {
-    padding: 80px 20px;
+    padding: 60px 20px;
     display: flex;
     justify-content: center;
 }
@@ -525,33 +498,35 @@ header .left a:hover::after {
 .contact {
     text-align: center;
     width: 100%;
-    max-width: 520px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(18px);
-    border-radius: 22px;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     padding: 40px 30px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: slideInUp 0.8s ease;
 }
 
 .contact h2 {
-    color: #0051ff;
-    margin-bottom: 25px;
-    position: relative;
+    color: #2c2c2c;
+    margin-bottom: 20px;
     font-size: 30px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
 }
 
-
 .email {
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 600;
     margin-bottom: 25px;
-    color: #333;
+    color: #666;
 }
 
 .social-buttons {
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
 }
 
 .social-buttons .btn {
@@ -560,21 +535,90 @@ header .left a:hover::after {
     align-items: center;
     gap: 10px;
     padding: 14px;
-    border-radius: 12px;
+    border-radius: 10px;
     text-decoration: none;
     color: #fff;
-    font-weight: bold;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 15px;
     transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.wa { background: #25D366; }
-.fb { background: #1877F2; }
-.ln { background: #0A66C2; }
+.wa { background: linear-gradient(135deg, #25D366, #1da853); }
+.fb { background: linear-gradient(135deg, #1877F2, #0a66c2); }
+.ln { background: linear-gradient(135deg, #0A66C2, #004182); }
 
 .social-buttons .btn:hover {
-    transform: scale(1.04);
-    opacity: 0.95;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* =======================
+   MESSAGE FORM
+======================= */
+.msg-box {
+    width: 90%;
+    max-width: 500px;
+    margin: 30px auto 60px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: slideInUp 0.8s ease;
+}
+
+.msg-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.msg-box input,
+.msg-box textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    outline: none;
+    background: #fff;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    color: #2c2c2c;
+}
+
+.msg-box textarea {
+    height: 120px;
+    resize: none;
+}
+
+.msg-box input:focus,
+.msg-box textarea:focus {
+    border-color: #d97070;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(217, 112, 112, 0.2);
+    transform: translateY(-2px);
+}
+
+.msg-box button {
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #d97070, #e8a8a8);
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+.msg-box button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(217, 112, 112, 0.3);
 }
 
 /* =======================
@@ -582,67 +626,252 @@ header .left a:hover::after {
 ======================= */
 footer {
     text-align: center;
-    padding: 20px;
-    background: #222;
-    color: #ddd;
-    font-size: 14px;
+    padding: 25px 20px;
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    color: #ccc;
+    font-size: 13px;
     margin-top: 40px;
+}
+
+/* =======================
+   SCROLL REVEAL
+======================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* =======================
    RESPONSIVE DESIGN
 ======================= */
-@media (max-width: 900px) {
-    .box, .profile-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 30px;
-        gap: 40px;
-    }
-
-    .box .image img {
-        width: 260px;
-        height: 260px;
-    }
-
+@media (max-width: 768px) {
     header {
-        padding: 15px 20px;
-        flex-wrap: wrap;
-        gap: 10px;
+        padding: 10px 15px;
+    }
+
+    header .left {
+        gap: 4px;
+    }
+
+    header .left a {
+        font-size: 11px;
+        padding: 5px 8px;
+        margin: 0 2px;
+    }
+
+    .social a {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+
+    .section2 img.logo {
+        height: 110px;
     }
 
     .cover {
-        height: 380px;
+        height: 220px;
+        margin: 15px auto;
     }
 
     .cover-text {
-        font-size: 20px;
-        padding: 14px 20px;
-    }
-}
-
-@media (max-width: 768px) {
-    .grid {
-        grid-template-columns: 1fr;
+        font-size: 16px;
+        padding: 18px 25px;
+        max-width: 90%;
     }
 
-    .articles, #contact {
+    .section-title {
+        font-size: 28px;
+        margin: 40px 15px 20px;
+    }
+
+    .box {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 25px;
+        width: 95%;
+        margin: 30px auto;
+    }
+
+    .box .text h2 {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .box .text p {
+        text-align: left;
+        font-size: 13px;
+    }
+
+    .box .image img {
+        max-width: 250px;
+    }
+
+    .articles {
         padding: 40px 15px;
     }
+
+    .articles h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .card p {
+        padding: 14px;
+        font-size: 13px;
+        min-height: 55px;
+    }
+
+    .profile-section {
+        flex-direction: column;
+        padding: 25px 20px;
+        gap: 30px;
+        width: 95%;
+        margin: 40px auto;
+    }
+
+    .skills h2, .experience h2 {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .skills ul li {
+        padding: 12px 14px;
+        font-size: 13px;
+        margin: 10px 0;
+    }
+
+    .job {
+        padding: 14px;
+        margin-bottom: 12px;
+    }
+
+    .job h3 {
+        font-size: 14px;
+    }
+
+    .job p {
+        font-size: 12px;
+    }
+
+    .contact {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+
+    .contact h2 {
+        font-size: 24px;
+    }
+
+    .email {
+        font-size: 13px;
+    }
+
+    .social-buttons .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .msg-box {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .msg-box input,
+    .msg-box textarea {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+    .msg-box button {
+        padding: 12px;
+        font-size: 14px;
+    }
 }
 
-/* Fade up animation for cards & jobs */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
+@media (max-width: 480px) {
+    header {
+        padding: 8px 10px;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    header .left a {
+        font-size: 10px;
+        padding: 4px 6px;
+        margin: 0 2px;
+    }
+
+    .social a {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+        margin: 0 3px;
+    }
+
+    .section2 img.logo {
+        height: 90px;
+    }
+
+    .cover {
+        height: 180px;
+        width: 96%;
+    }
+
+    .cover-text {
+        font-size: 14px;
+        padding: 14px 18px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        margin: 30px 10px 15px;
+    }
+
+    .box {
+        padding: 18px 15px;
+        width: 97%;
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        padding: 0 5px;
+    }
+
+    .card {
+        margin: 0;
+    }
+
+    .profile-section {
+        padding: 18px 15px;
+        gap: 20px;
+    }
+
+    .contact {
+        padding: 20px 15px;
+    }
+
+    .msg-box {
+        padding: 15px;
+    }
+
+    footer {
+        padding: 18px 10px;
+        font-size: 12px;
     }
 }
-</style>    
+</style>
 </head>
 
 <body>
@@ -654,208 +883,205 @@ footer {
         <a href="#about">About</a>
         <a href="#articles">Publications</a>
         <a href="#skills">Skills</a>
-        <a href="#articles">Poems</a >
         <a href="#contact">Contact</a>
     </div>
 
-
-
-
     <!-- SOCIAL ICONS -->
     <div class="social">
-        <a href="https://www.facebook.com/shahnazkeya.keyamony"><i class="fab fa-facebook-f"></i></a>
-        <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/"><i class="fab fa-linkedin-in"></i></a>
-        <a href="https://wa.me/8801748551830"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.facebook.com/shahnazkeya.keyamony" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://wa.me/8801748551830" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
 </header>
 
 <!-- SECTION 2 -->
 <div class="section2">
-    <img class="logo" src="https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg">
+    <img class="logo" src="https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg" alt="Logo">
 
-
-
-<!-- COVER -->
-<div class="cover">
-    <img src="https://i.pinimg.com/736x/04/66/7e/04667eccb9fd8a676c180f4075c35d89.jpg">
-    
-    <!-- TEXT -->
-    <div class="cover-text">
-        <span id="typing"></span>
+    <!-- COVER -->
+    <div class="cover">
+        <img src="https://i.pinimg.com/736x/04/66/7e/04667eccb9fd8a676c180f4075c35d89.jpg" alt="Cover Image">
+        
+        <!-- TEXT -->
+        <div class="cover-text">
+            <span id="typing"></span>
+        </div>
     </div>
 </div>
 
-</div>
-    
-</div>
 </section>
 
-
-<section id="about">
-    <h1 class="section-title">About</h1>
-<div class="box">
-     <div class="text">
-
-<h2>About Shahnaz Jasmeen Keya</h2>
-
-    <p>
-    Shahnaz Jasmeen Keya is a Lecturer in the Department of Education (English) at RTM Al-Kabir Technical University,Sylhet,Bangladesh.
-    She is an educator and researcher with a focus on English Language Teaching and literary studies.
-
-    <br> 
-    She completed her Bachelor of Arts (B.A. Honours) and Master of Arts (M.A.) from Metropolitan University, Sylhet.
-
-    She has teaching experience at Al Amanah Academy and Scholarshome South Surma, Sylhet.
-    She has also completed professional training in TESOL Methodology  and teacher development training from Arizona State University through the Online Professional English Network (OPEN).
-
-    Her research interests include Diaspora Studies, Postcolonial Studies, Rabindranath Tagore studies, and English Language Teaching (ELT).
-    She has presented research papers at national conferences and published academic abstracts and creative writings in different platforms, including Spillwords.com.
-    Having published abstracts in different South Asian conferences, she has a fascination for academic research.
-  
-    She has also served as Vice President of the MU Speakers Club of English, showing her involvement in academic leadership and communication activities.
-    </p>
-</div>
-   
-    <div class="image">
-    <img src="https://i.pinimg.com/736x/e8/77/ca/e877ca057e2735320d3c0130f0240c2a.jpg"> <!------profile----->
-</div>
-</div>
+<!-- ABOUT SECTION -->
+<section id="about" class="reveal">
+    <h1 class="section-title">About Me</h1>
+    <div class="box">
+        <div class="text">
+            <h2>Shahnaz Jasmeen Keya</h2>
+            <p>
+                Shahnaz Jasmeen Keya is a Lecturer in the Department of Education (English) at RTM Al-Kabir Technical University, Sylhet, Bangladesh. She is an educator and researcher with a focus on English Language Teaching and literary studies.
+                <br><br>
+                She completed her Bachelor of Arts (B.A. Honours) and Master of Arts (M.A.) from Metropolitan University, Sylhet. She has teaching experience at Al Amanah Academy and Scholarshome South Surma, Sylhet.
+                <br><br>
+                She has completed professional training in TESOL Methodology and teacher development training from Arizona State University through the Online Professional English Network (OPEN).
+                <br><br>
+                Her research interests include Diaspora Studies, Postcolonial Studies, Rabindranath Tagore studies, and English Language Teaching (ELT). She has presented research papers at national conferences and published academic abstracts and creative writings in different platforms.
+            </p>
+        </div>
+        
+        <div class="image">
+            <img src="https://i.pinimg.com/736x/e8/77/ca/e877ca057e2735320d3c0130f0240c2a.jpg" alt="Profile Photo">
+        </div>
+    </div>
 </section>
 
-
+<!-- PUBLICATIONS SECTION -->
 <section id="articles">
-<div class="articles">
-    <h2>Publications </h2>
+    <div class="articles reveal">
+        <h2>Publications & Creative Works</h2>
 
-    <div class="grid">
+        <div class="grid">
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/56/a1/5e/56a15ef237c3f8836d6a6593f2141419.jpg" alt="Patriarchy in a Modern Man">
+                <p>Patriarchy in a Modern Man: A Study of Satyajit Ray's Mahanagar</p>
+            </div>
 
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/56/a1/5e/56a15ef237c3f8836d6a6593f2141419.jpg" alt="Patriarchy in a Modern Man">
-            <p>Patriarchy in a Modern Man: A Study of Satyajit Ray’s Mahanagar</p>
+            <div class="card">
+                <img src="https://i.pinimg.com/1200x/27/bb/3a/27bb3a4c5a29ea76776bdcc0a2d8137c.jpg" alt="Bangla Marginalization">
+                <p>The Marginalization of Bangla among the English Medium Schools</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/c3/40/0b/c3400b0f7f430c8306c6a6ee37ebaa3f.jpg" alt="Bastobota">
+                <p>Bastobota</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/8c/30/15/8c3015ecdbf7f82171c9e9f6148d9571.jpg" alt="Durutto">
+                <p>Durutto</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/74/a5/14/74a514f33552bd1264c05d7c6e86a842.jpg" alt="Kabita Tumi">
+                <p>Kabita Tumi</p>
+            </div>
+
+            <div class="card">
+                <img src="https://i.pinimg.com/736x/1f/a5/8c/1fa58cf07319912577b259e429ceadc4.jpg" alt="Salty Eyes">
+                <p>Salty Eyes</p>
+            </div>
         </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/1200x/27/bb/3a/27bb3a4c5a29ea76776bdcc0a2d8137c.jpg" alt="Bangla Marginalization">
-            <p>The Marginalization of Bangla among the English Medium Schools</p>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/c3/40/0b/c3400b0f7f430c8696b6c6ee37ebaa3f.jpg" alt="Bastobota">
-            <p>Bastobota</p>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/8c/30/15/8c3015ecdbf7f82171c9e9f6148d9571.jpg" alt="Durutto">
-            <p>Durutto</p>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/74/a5/14/74a514f33552bd1264c05d7c6e86a842.jpg" alt="Kabita Tumi">
-            <p>Kabita Tumi</p>
-        </div>
-
-        <div class="card">
-            <img src="https://i.pinimg.com/736x/1f/a5/8c/1fa58cf07319912577b259e429ceadc4.jpg" alt="Salty Eyes">
-            <p>Salty Eyes</p>
-        </div>
-
-    </div>
-</div>
-
-
-
-<section id="skills">
-<div class="profile-section">
-
-    <!-- LEFT: SKILLS -->
-    <div class="skills">
-        <h2>Skills & Strengths</h2>
-
-        <ul>
-            <li>Strong Communication Skills</li>
-            <li>Analytical Thinking Ability</li>
-            <li>Research Skills</li>
-            <li>Academic Writing & Publication Experience</li>
-            <li>Management Skills</li>
-            <li>Leadership Experience (MU Speakers Club)</li>
-            <li>TESOL Methodology Training (University of Maryland, USA)</li>
-            <li>Professional Teacher Training (Arizona State University)</li>
-        </ul>
     </div>
 
-    <!-- RIGHT: EXPERIENCE -->
-    <div class="experience">
-        <h2>Work Experience</h2>
+    <!-- SKILLS & EXPERIENCE SECTION -->
+    <section id="skills">
+        <div class="profile-section reveal">
 
-        <div class="job">
-            <h3>Lecturer (English)</h3>
-            <p>RTM Al-Kabir Technical University (RTM-AKTU)</p>
-            <span>01/02/2026 – Present</span>
+            <!-- SKILLS -->
+            <div class="skills">
+                <h2>Skills & Strengths</h2>
+
+                <ul>
+                    <li><i class="fas fa-check"></i> Strong Communication Skills</li>
+                    <li><i class="fas fa-check"></i> Analytical Thinking Ability</li>
+                    <li><i class="fas fa-check"></i> Research Skills</li>
+                    <li><i class="fas fa-check"></i> Academic Writing & Publication</li>
+                    <li><i class="fas fa-check"></i> Management Skills</li>
+                    <li><i class="fas fa-check"></i> Leadership Experience</li>
+                    <li><i class="fas fa-check"></i> TESOL Methodology Training</li>
+                    <li><i class="fas fa-check"></i> Professional Teacher Training</li>
+                </ul>
+            </div>
+
+            <!-- EXPERIENCE -->
+            <div class="experience">
+                <h2>Work Experience</h2>
+
+                <div class="job">
+                    <h3>📚 Lecturer (English)</h3>
+                    <p>RTM Al-Kabir Technical University</p>
+                    <span>01/02/2026 – Present</span>
+                </div>
+
+                <div class="job">
+                    <h3>👩‍🏫 Teacher</h3>
+                    <p>Al Amanah Academy, Sylhet</p>
+                    <span>23/12/2023 – 24/01/2025</span>
+                </div>
+
+                <div class="job">
+                    <h3>👩‍🏫 Teacher</h3>
+                    <p>Scholarshome South Surma, Sylhet</p>
+                    <span>01/08/2023 – 02/09/2023</span>
+                </div>
+
+                <div class="job">
+                    <h3>💼 Administrator & Executive</h3>
+                    <p>Community Care Worker, Stoke-on-Trent</p>
+                </div>
+            </div>
         </div>
-
-        <div class="job">
-            <h3>Teacher</h3>
-            <p>Al Amanah Academy, Sylhet</p>
-            <span>23/12/2023 – 24/01/2025</span>
-        </div>
-
-        <div class="job">
-            <h3>Teacher</h3>
-            <p>Scholarshome South Surma, Sylhet</p>
-            <span>01/08/2023 – 02/09/2023</span>
-        </div>
-
-        <div class="job">
-            <h3>Remote Administrator & Call Centre Executive</h3>
-            <p>Community Care Worker, Stoke-on-Trent</p>
-        </div>
-
-    </div>
-
-</div>
-
+    </section>
 </section>
 
-
+<!-- CONTACT SECTION -->
 <section id="contact">
-<div class="contact">
+    <div class="contact reveal">
+        <h2>Get In Touch</h2>
 
-    <h2>Contact Me</h2>
+        <div class="contact-center">
+            <p class="email">📧 shahnazkeya@gmail.com</p>
 
-    <div class="contact-center">
+            <div class="social-buttons">
+                <a href="https://wa.me/8801748551830" target="_blank" class="btn wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
 
-        <p class="email">@gmail.com</p>
+                <a href="https://www.facebook.com/shahnazkeya.keyamony" target="_blank" class="btn fb">
+                    <i class="fab fa-facebook"></i> Facebook
+                </a>
 
-        <div class="social-buttons">
-
-            <a href="https://wa.me/8801748551830" target="_blank" class="btn wa">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-
-            <a href="https://www.facebook.com/shahnazkeya.keyamony" target="_blank" class="btn fb">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-
-            <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/" target="_blank" class="btn ln">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-
+                <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/" target="_blank" class="btn ln">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
         </div>
-
     </div>
-</div>
+</section>
+
+<!-- MESSAGE SECTION -->
+<section id="message">
+    <h1 class="section-title">Send Message</h1>
+
+    <div class="msg-box reveal">
+        <form id="msgForm">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <input type="tel" name="phone" placeholder="Phone Number" required>
+            <textarea name="message" placeholder="Write your message..." required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
 </section>
 
 <footer>
-    Copyright © 2026 | shahnazkeya.com
+    <p>Copyright © 2026 | shahnazkeya.com | All Rights Reserved</p>
 </footer>
 
 <script>
-const text = "Learning is the rhythm that guides us through life’s dance";
+
+// ===============================
+// GOOGLE SHEET MESSAGE FORM
+// ===============================
+const scriptURL = "****************************";
+
+const form = document.getElementById("msgForm");
+
+// Typing effect
+const text = "Learning is the rhythm that guides us through life's dance";
 let i = 0;
 
-function typingEffect(){
-    if(i < text.length){
+function typingEffect() {
+    if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
         setTimeout(typingEffect, 80);
@@ -863,8 +1089,48 @@ function typingEffect(){
 }
 
 typingEffect();
-</script>
 
+// Form submit
+form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(scriptURL, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+        console.log("Response:", data);
+        alert("✅ Message Sent Successfully!");
+        form.reset();
+    })
+    .catch(err => {
+        console.error("Error:", err);
+        alert("❌ Something went wrong!");
+    });
+});
+
+// Scroll reveal animation
+function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    for (let i = 0; i < reveals.length; i++) {
+        const windowHeight = window.innerHeight;
+        const elementTop = reveals[i].getBoundingClientRect().top;
+        const elementVisible = 100;
+
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+</script>
 
 </body>
 </html>
