@@ -3,19 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shahnaz Jasmeen Keya - Educator & Researcher</title>
+<title>Shahnaz Jasmeen Keya </title>
 <link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/cc/4f/b6/cc4fb600729aa336a1051df67b156a21.jpg">
-
-<!-- Font Awesome (icons) -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
 <style>
-/* =======================
-   GLOBAL RESET & BASE
-======================= */
 * {
     margin: 0;
     padding: 0;
@@ -36,9 +29,7 @@ body {
     min-height: 100vh;
 }
 
-/* =======================
-   HEADER
-======================= */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -94,9 +85,7 @@ header .left a:hover::after {
     width: 100%;
 }
 
-/* =======================
-   SOCIAL ICONS
-======================= */
+
 .social {
     display: flex;
     gap: 8px;
@@ -123,9 +112,7 @@ header .left a:hover::after {
     box-shadow: 0 6px 20px rgba(217, 112, 112, 0.4);
 }
 
-/* =======================
-   SECTION 2 - LOGO
-======================= */
+
 .section2 {
     text-align: center;
     padding: 20px 0;
@@ -155,9 +142,7 @@ header .left a:hover::after {
     }
 }
 
-/* =======================
-   COVER SECTION
-======================= */
+
 .cover {
     position: relative;
     width: 95%;
@@ -213,9 +198,7 @@ header .left a:hover::after {
     line-height: 1.5;
 }
 
-/* =======================
-   SECTION TITLE
-======================= */
+
 .section-title {
     text-align: center;
     font-size: 36px;
@@ -236,9 +219,7 @@ header .left a:hover::after {
     border-radius: 2px;
 }
 
-/* =======================
-   ABOUT SECTION
-======================= */
+
 .box {
     width: 90%;
     max-width: 1100px;
@@ -307,9 +288,7 @@ header .left a:hover::after {
     box-shadow: 0 18px 40px rgba(217, 112, 112, 0.3);
 }
 
-/* =======================
-   PUBLICATIONS SECTION
-======================= */
+
 .articles {
     padding: 60px 20px;
 }
@@ -399,9 +378,7 @@ header .left a:hover::after {
     line-height: 1.5;
 }
 
-/* =======================
-   SKILLS & EXPERIENCE
-======================= */
+
 .profile-section {
     width: 90%;
     max-width: 1100px;
@@ -486,9 +463,7 @@ header .left a:hover::after {
     font-style: italic;
 }
 
-/* =======================
-   CONTACT SECTION
-======================= */
+
 #contact {
     padding: 60px 20px;
     display: flex;
@@ -554,9 +529,7 @@ header .left a:hover::after {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
-/* =======================
-   MESSAGE FORM
-======================= */
+
 .msg-box {
     width: 90%;
     max-width: 500px;
@@ -621,9 +594,7 @@ header .left a:hover::after {
     box-shadow: 0 10px 25px rgba(217, 112, 112, 0.3);
 }
 
-/* =======================
-   FOOTER
-======================= */
+
 footer {
     text-align: center;
     padding: 25px 20px;
@@ -633,9 +604,7 @@ footer {
     margin-top: 40px;
 }
 
-/* =======================
-   SCROLL REVEAL
-======================= */
+
 .reveal {
     opacity: 0;
     transform: translateY(40px);
@@ -647,9 +616,7 @@ footer {
     transform: translateY(0);
 }
 
-/* =======================
-   RESPONSIVE DESIGN
-======================= */
+
 @media (max-width: 768px) {
     header {
         padding: 10px 15px;
@@ -801,6 +768,267 @@ footer {
     }
 }
 
+
+#loader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f0ec 0%, #ede6e1 100%);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#loader.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 40px 50px;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 50px rgba(217, 112, 112, 0.18);
+}
+
+.loader-ring {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid rgba(217, 112, 112, 0.15);
+    border-top-color: #d97070;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loader-card span {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #d97070;
+    font-weight: 600;
+}
+
+
+.pub-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.pub-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 22px 45px rgba(217, 112, 112, 0.25);
+    border-color: rgba(217, 112, 112, 0.4);
+}
+
+.pub-thumb-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background: #eee;
+}
+
+.pub-thumb-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.pub-card:hover .pub-thumb-wrap img {
+    transform: scale(1.08);
+}
+
+.pub-body {
+    padding: 18px 20px 22px;
+}
+
+.pub-body h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.pub-body p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.pub-read {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #d97070;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.pub-empty, .pub-error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: #999;
+    font-size: 14px;
+}
+
+.pub-skel {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.pub-skel .pub-thumb-wrap, .pub-skel-line {
+    background: linear-gradient(90deg, #ece5e0 25%, #f6f0ec 37%, #ece5e0 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+}
+
+.pub-skel .pub-thumb-wrap { aspect-ratio: 16/9; }
+
+.pub-skel-line {
+    height: 12px;
+    margin: 18px 20px;
+    border-radius: 6px;
+}
+
+.pub-skel-line.short { width: 60%; }
+
+@keyframes shimmer {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+}
+
+
+#pubDetail {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: linear-gradient(135deg, #f5f0ec 0%, #ede6e1 100%);
+    overflow-y: auto;
+    transform: translateY(100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease, visibility 0.5s ease;
+}
+
+#pubDetail.open {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.pub-detail-back {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 18px 0 0 20px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c2c2c;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.pub-detail-back:hover {
+    background: #d97070;
+    color: #fff;
+    transform: translateX(-4px);
+}
+
+.pub-detail-hero {
+    width: 92%;
+    max-width: 950px;
+    margin: 25px auto 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    aspect-ratio: 16/9;
+    background: #000;
+}
+
+.pub-detail-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.pub-detail-content {
+    width: 90%;
+    max-width: 850px;
+    margin: 35px auto 80px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pub-detail-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.pub-detail-content .pub-detail-body {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #444;
+    white-space: pre-line;
+}
+
+@media (max-width: 600px) {
+    .pub-detail-content { padding: 25px 20px; }
+    .pub-detail-content h1 { font-size: 22px; }
+}
+
 @media (max-width: 480px) {
     header {
         padding: 8px 10px;
@@ -875,8 +1103,17 @@ footer {
 </head>
 
 <body>
+
+
+<div id="loader">
+    <div class="loader-card">
+        <div class="loader-ring"></div>
+        <span>Loading</span>
+    </div>
+</div>
+
 <section id="home">
-<!-- HEADER -->
+
 <header>
     <div class="left">
         <a href="#home">Home</a>
@@ -886,7 +1123,7 @@ footer {
         <a href="#contact">Contact</a>
     </div>
 
-    <!-- SOCIAL ICONS -->
+
     <div class="social">
         <a href="https://www.facebook.com/shahnazkeya.keyamony" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.linkedin.com/in/shahnaz-keya-a8aaa7269/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
@@ -894,15 +1131,15 @@ footer {
     </div>
 </header>
 
-<!-- SECTION 2 -->
+
 <div class="section2">
     <img class="logo" src="https://i.pinimg.com/736x/c1/cf/11/c1cf119d545549f2f615bee9a4d13c61.jpg" alt="Logo">
 
-    <!-- COVER -->
+
     <div class="cover">
         <img src="https://i.pinimg.com/736x/04/66/7e/04667eccb9fd8a676c180f4075c35d89.jpg" alt="Cover Image">
         
-        <!-- TEXT -->
+
         <div class="cover-text">
             <span id="typing"></span>
         </div>
@@ -911,7 +1148,7 @@ footer {
 
 </section>
 
-<!-- ABOUT SECTION -->
+
 <section id="about" class="reveal">
     <h1 class="section-title">About Me</h1>
     <div class="box">
@@ -934,49 +1171,24 @@ footer {
     </div>
 </section>
 
-<!-- PUBLICATIONS SECTION -->
+
 <section id="articles">
     <div class="articles reveal">
         <h2>Publications & Creative Works</h2>
 
-        <div class="grid">
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/56/a1/5e/56a15ef237c3f8836d6a6593f2141419.jpg" alt="Patriarchy in a Modern Man">
-                <p>Patriarchy in a Modern Man: A Study of Satyajit Ray's Mahanagar</p>
-            </div>
+        <div class="grid" id="pubGrid">
 
-            <div class="card">
-                <img src="https://i.pinimg.com/1200x/27/bb/3a/27bb3a4c5a29ea76776bdcc0a2d8137c.jpg" alt="Bangla Marginalization">
-                <p>The Marginalization of Bangla among the English Medium Schools</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/c3/40/0b/c3400b0f7f430c8306c6a6ee37ebaa3f.jpg" alt="Bastobota">
-                <p>Bastobota</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/8c/30/15/8c3015ecdbf7f82171c9e9f6148d9571.jpg" alt="Durutto">
-                <p>Durutto</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/74/a5/14/74a514f33552bd1264c05d7c6e86a842.jpg" alt="Kabita Tumi">
-                <p>Kabita Tumi</p>
-            </div>
-
-            <div class="card">
-                <img src="https://i.pinimg.com/736x/1f/a5/8c/1fa58cf07319912577b259e429ceadc4.jpg" alt="Salty Eyes">
-                <p>Salty Eyes</p>
-            </div>
+            <div class="pub-skel"><div class="pub-thumb-wrap"></div><div class="pub-skel-line"></div><div class="pub-skel-line short"></div></div>
+            <div class="pub-skel"><div class="pub-thumb-wrap"></div><div class="pub-skel-line"></div><div class="pub-skel-line short"></div></div>
+            <div class="pub-skel"><div class="pub-thumb-wrap"></div><div class="pub-skel-line"></div><div class="pub-skel-line short"></div></div>
         </div>
     </div>
 
-    <!-- SKILLS & EXPERIENCE SECTION -->
+
     <section id="skills">
         <div class="profile-section reveal">
 
-            <!-- SKILLS -->
+ 
             <div class="skills">
                 <h2>Skills & Strengths</h2>
 
@@ -992,7 +1204,7 @@ footer {
                 </ul>
             </div>
 
-            <!-- EXPERIENCE -->
+
             <div class="experience">
                 <h2>Work Experience</h2>
 
@@ -1023,7 +1235,7 @@ footer {
     </section>
 </section>
 
-<!-- CONTACT SECTION -->
+
 <section id="contact">
     <div class="contact reveal">
         <h2>Get In Touch</h2>
@@ -1048,7 +1260,7 @@ footer {
     </div>
 </section>
 
-<!-- MESSAGE SECTION -->
+
 <section id="message">
     <h1 class="section-title">Send Message</h1>
 
@@ -1067,16 +1279,24 @@ footer {
     <p>Copyright © 2026 | shahnazkeya.com | All Rights Reserved</p>
 </footer>
 
+
+<div id="pubDetail">
+    <div class="pub-detail-back" id="pubDetailBack"><i class="fas fa-arrow-left"></i> Back</div>
+    <div class="pub-detail-hero"><img id="pubDetailImg" src="" alt=""></div>
+    <div class="pub-detail-content">
+        <h1 id="pubDetailTitle"></h1>
+        <div class="pub-detail-body" id="pubDetailBody"></div>
+    </div>
+</div>
+
 <script>
 
-// ===============================
-// GOOGLE SHEET MESSAGE FORM
-// ===============================
-const scriptURL = "****************************";
+
+const scriptURL = "**************************************";
 
 const form = document.getElementById("msgForm");
 
-// Typing effect
+
 const text = "Learning is the rhythm that guides us through life's dance";
 let i = 0;
 
@@ -1090,7 +1310,7 @@ function typingEffect() {
 
 typingEffect();
 
-// Form submit
+
 form.addEventListener("submit", function (e) {
     e.preventDefault();
 
@@ -1112,7 +1332,7 @@ form.addEventListener("submit", function (e) {
     });
 });
 
-// Scroll reveal animation
+
 function revealOnScroll() {
     const reveals = document.querySelectorAll(".reveal");
 
@@ -1130,6 +1350,138 @@ function revealOnScroll() {
 window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
+
+window.addEventListener("load", function () {
+    setTimeout(function () {
+        document.getElementById("loader").classList.add("hide");
+    }, 1000);
+});
+
+setTimeout(function () {
+    document.getElementById("loader").classList.add("hide");
+}, 1500);
+
+</script>
+
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AI*****************************Nk",
+    authDomain: "sha**************************.com",
+    databaseURL: "ht**************************base.app",
+    projectId: "sh**************************eya",
+    storageBucket: "sha**************************rage.app",
+    messagingSenderId: "**************************",
+    appId: "1:616497736683:web:95**************************7687ae",
+    measurementId: "G**************************VHE"
+};
+
+const app = initializeApp(firebaseConfig);
+isSupported().then((ok) => { if (ok) getAnalytics(app); }).catch(() => {});
+const db = getDatabase(app);
+
+const pubGrid = document.getElementById("pubGrid");
+const pubDetail = document.getElementById("pubDetail");
+const pubDetailImg = document.getElementById("pubDetailImg");
+const pubDetailTitle = document.getElementById("pubDetailTitle");
+const pubDetailBody = document.getElementById("pubDetailBody");
+const pubDetailBack = document.getElementById("pubDetailBack");
+
+let publicationsCache = {};
+
+function escapeHtml(str) {
+    const d = document.createElement("div");
+    d.textContent = str == null ? "" : String(str);
+    return d.innerHTML;
+}
+
+function renderPublications(items) {
+    if (!items.length) {
+        pubGrid.innerHTML = '<div class="pub-empty">No publications yet. Check back soon.</div>';
+        return;
+    }
+
+    pubGrid.innerHTML = items.map((item, idx) => `
+        <div class="pub-card" data-id="${escapeHtml(item.id)}" style="animation-delay:${(idx % 6) * 0.1}s">
+            <div class="pub-thumb-wrap">
+                <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy">
+            </div>
+            <div class="pub-body">
+                <h3>${escapeHtml(item.title)}</h3>
+                <p>${escapeHtml(item.shortDescription)}</p>
+                <span class="pub-read">Read More <i class="fas fa-arrow-right"></i></span>
+            </div>
+        </div>
+    `).join("");
+
+    document.querySelectorAll(".pub-card").forEach((card) => {
+        card.addEventListener("click", () => {
+            window.location.hash = "pub-" + card.dataset.id;
+        });
+    });
+}
+
+function openDetail(id) {
+    const item = publicationsCache[id];
+    if (!item) return;
+    pubDetailImg.src = item.image || "";
+    pubDetailImg.alt = item.title || "";
+    pubDetailTitle.textContent = item.title || "";
+    pubDetailBody.textContent = item.fullDescription || item.shortDescription || "";
+    pubDetail.classList.add("open");
+    pubDetail.scrollTop = 0;
+    document.body.style.overflow = "hidden";
+}
+
+function closeDetail() {
+    pubDetail.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+function handleHash() {
+    const hash = window.location.hash;
+    if (hash.startsWith("#pub-")) {
+        openDetail(hash.replace("#pub-", ""));
+    } else {
+        closeDetail();
+    }
+}
+
+pubDetailBack.addEventListener("click", () => {
+    if (window.location.hash.startsWith("#pub-")) {
+        history.back();
+    } else {
+        closeDetail();
+    }
+});
+
+window.addEventListener("hashchange", handleHash);
+
+const publicationsRef = ref(db, "publications");
+onValue(publicationsRef, (snapshot) => {
+    const data = snapshot.val();
+    publicationsCache = {};
+    const items = [];
+
+    if (data) {
+        Object.keys(data).forEach((id) => {
+            const pub = { id, ...data[id] };
+            publicationsCache[id] = pub;
+            items.push(pub);
+        });
+        items.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    }
+
+    renderPublications(items);
+    handleHash();
+}, (error) => {
+    console.error("Firebase read failed:", error);
+    pubGrid.innerHTML = '<div class="pub-error">Unable to load publications right now. Please try again later.</div>';
+});
 </script>
 
 </body>
