@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shahnaz Jasmeen Keya</title>
+<link rel="icon" type="image/x-icon" href="https://i.pinimg.com/736x/cc/4f/b6/cc4fb600729aa336a1051df67b156a21.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f0ec 0%, #ede6e1 100%);
+    color: #2c2c2c;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 30px;
+    background: rgba(240, 180, 180, 0.95);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+header .home-link {
+    text-decoration: none;
+    color: #2c2c2c;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #fff;
+    transition: all 0.3s ease;
+}
+
+header .home-link:hover {
+    background: #d97070;
+    color: #fff;
+}
+
+#logoutBtn {
+    display: none;
+    background: #2c2c2c;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px 60px;
+}
+
+/* LOGIN */
+#loginScreen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 380px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+.login-card i.fa-lock {
+    font-size: 30px;
+    color: #d97070;
+    margin-bottom: 16px;
+}
+
+.login-card h2 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.login-card input {
+    width: 100%;
+    padding: 13px 14px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.login-card input:focus {
+    border-color: #d97070;
+    box-shadow: 0 0 15px rgba(217, 112, 112, 0.2);
+}
+
+.login-card button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #d97070, #e8a8a8);
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.login-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(217, 112, 112, 0.3);
+}
+
+#loginError {
+    color: #c0392b;
+    font-size: 12px;
+    margin-top: 12px;
+    min-height: 16px;
+}
+
+/* PANEL */
+#panel { display: none; }
+
+.panel-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin: 30px 0 20px;
+}
+
+.form-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px);
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 40px;
+}
+
+.form-card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #d97070;
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.form-grid .full { grid-column: 1 / -1; }
+
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+input[type="text"], input[type="url"], textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 2px solid #eee;
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    transition: all 0.3s ease;
+    background: #fff;
+    color: #2c2c2c;
+}
+
+input[type="text"]:focus, input[type="url"]:focus, textarea:focus {
+    border-color: #d97070;
+    box-shadow: 0 0 15px rgba(217, 112, 112, 0.15);
+}
+
+textarea { resize: vertical; min-height: 80px; }
+textarea.full-desc { min-height: 140px; }
+
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 18px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #d97070, #e8a8a8);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(217, 112, 112, 0.3);
+}
+
+.btn-secondary {
+    background: #eee;
+    color: #444;
+}
+
+.btn-secondary:hover { background: #e0e0e0; }
+
+.form-msg {
+    margin-top: 12px;
+    font-size: 13px;
+    min-height: 16px;
+}
+
+.form-msg.success { color: #1da853; }
+.form-msg.error { color: #c0392b; }
+
+/* LIST */
+.list-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.pub-row {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.pub-row img {
+    width: 100px;
+    height: 62px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+    background: #eee;
+}
+
+.pub-row .info { flex: 1; min-width: 0; }
+
+.pub-row .info h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pub-row .info p {
+    font-size: 12px;
+    color: #777;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pub-row .row-actions {
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    transition: all 0.3s ease;
+}
+
+.icon-btn.edit { background: #f0f0f0; color: #444; }
+.icon-btn.edit:hover { background: #d97070; color: #fff; }
+.icon-btn.delete { background: #fbe4e4; color: #c0392b; }
+.icon-btn.delete:hover { background: #c0392b; color: #fff; }
+
+.empty-row {
+    text-align: center;
+    color: #999;
+    font-size: 13px;
+    padding: 30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>📚 Publications Admin</h1>
+    <div style="display:flex; gap:10px; align-items:center;">
+        <button id="logoutBtn">Log Out</button>
+        <a class="home-link" href="index.html">View Website</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- LOGIN SCREEN -->
+    <div id="loginScreen">
+        <div class="login-card">
+            <i class="fas fa-lock"></i>
+            <h2>Admin Sign In</h2>
+            <input type="text" id="loginEmail" placeholder="Email">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginBtn">Sign In</button>
+            <p id="loginError"></p>
+        </div>
+    </div>
+
+    <!-- ADMIN PANEL -->
+    <div id="panel">
+        <h2 class="panel-title" id="formTitle">Add Publication</h2>
+
+        <div class="form-card">
+            <h3><i class="fas fa-plus-circle"></i> Publication Details</h3>
+            <div class="form-grid">
+                <div class="full">
+                    <label>Short Title</label>
+                    <input type="text" id="fTitle" placeholder="e.g. Patriarchy in a Modern Man">
+                </div>
+                <div class="full">
+                    <label>Short Description</label>
+                    <textarea id="fShortDesc" placeholder="A brief one or two line summary shown on the card..."></textarea>
+                </div>
+                <div class="full">
+                    <label>Full Description</label>
+                    <textarea class="full-desc" id="fFullDesc" placeholder="The complete write-up shown on the publication's detail page..."></textarea>
+                </div>
+                <div class="full">
+                    <label>Image URL</label>
+                    <input type="url" id="fImage" placeholder="https://example.com/image.jpg">
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button class="btn btn-primary" id="saveBtn"><i class="fas fa-save"></i> Save Publication</button>
+                <button class="btn btn-secondary" id="cancelEditBtn" style="display:none;">Cancel Edit</button>
+            </div>
+            <p class="form-msg" id="formMsg"></p>
+        </div>
+
+        <h3 class="list-title">All Publications</h3>
+        <div id="pubList"></div>
+    </div>
+</div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAnalytics, isSupported } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+import {
+    getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import {
+    getDatabase, ref, onValue, push, set, update, remove
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "************************************",
+    authDomain: "sha***************************m",
+    databaseURL: "http*********************atabas****e.app",
+    projectId: "sha************ya",
+    storageBucket: "sha*****pp",
+    messagingSenderId: "61*******************6683",
+    appId: "1:616497***********************d1f97687ae",
+    measurementId: "****************VHE"
+};
+
+const app = initializeApp(firebaseConfig);
+isSupported().then((ok) => { if (ok) getAnalytics(app); }).catch(() => {});
+const auth = getAuth(app);
+const db = getDatabase(app);
+
+// ---------- DOM ----------
+const loginScreen = document.getElementById("loginScreen");
+const panel = document.getElementById("panel");
+const logoutBtn = document.getElementById("logoutBtn");
+const loginBtn = document.getElementById("loginBtn");
+const loginEmail = document.getElementById("loginEmail");
+const loginPassword = document.getElementById("loginPassword");
+const loginError = document.getElementById("loginError");
+
+const fTitle = document.getElementById("fTitle");
+const fShortDesc = document.getElementById("fShortDesc");
+const fFullDesc = document.getElementById("fFullDesc");
+const fImage = document.getElementById("fImage");
+const saveBtn = document.getElementById("saveBtn");
+const cancelEditBtn = document.getElementById("cancelEditBtn");
+const formMsg = document.getElementById("formMsg");
+const formTitle = document.getElementById("formTitle");
+const pubList = document.getElementById("pubList");
+
+let editingId = null;
+
+// ---------- AUTH ----------
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        loginScreen.style.display = "none";
+        panel.style.display = "block";
+        logoutBtn.style.display = "inline-block";
+    } else {
+        loginScreen.style.display = "flex";
+        panel.style.display = "none";
+        logoutBtn.style.display = "none";
+    }
+});
+
+loginBtn.addEventListener("click", () => {
+    loginError.textContent = "";
+    signInWithEmailAndPassword(auth, loginEmail.value.trim(), loginPassword.value)
+        .catch((err) => {
+            loginError.textContent = "Sign in failed. Check your email and password.";
+            console.error(err);
+        });
+});
+
+loginPassword.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") loginBtn.click();
+});
+
+logoutBtn.addEventListener("click", () => signOut(auth));
+
+// ---------- FORM ----------
+function resetForm() {
+    editingId = null;
+    fTitle.value = "";
+    fShortDesc.value = "";
+    fFullDesc.value = "";
+    fImage.value = "";
+    formTitle.textContent = "Add Publication";
+    saveBtn.innerHTML = '<i class="fas fa-save"></i> Save Publication';
+    cancelEditBtn.style.display = "none";
+    formMsg.textContent = "";
+}
+
+cancelEditBtn.addEventListener("click", resetForm);
+
+saveBtn.addEventListener("click", async () => {
+    const title = fTitle.value.trim();
+    const shortDescription = fShortDesc.value.trim();
+    const fullDescription = fFullDesc.value.trim();
+    const image = fImage.value.trim();
+
+    if (!title || !shortDescription || !image) {
+        formMsg.textContent = "Please fill in Short Title, Short Description, and Image URL.";
+        formMsg.className = "form-msg error";
+        return;
+    }
+
+    const payload = { title, shortDescription, fullDescription, image };
+
+    try {
+        if (editingId) {
+            await update(ref(db, "publications/" + editingId), payload);
+            formMsg.textContent = "Publication updated successfully.";
+        } else {
+            const newRef = push(ref(db, "publications"));
+            await set(newRef, { ...payload, createdAt: Date.now() });
+            formMsg.textContent = "Publication added successfully.";
+        }
+        formMsg.className = "form-msg success";
+        resetForm();
+    } catch (err) {
+        console.error(err);
+        formMsg.textContent = "Something went wrong. Please try again.";
+        formMsg.className = "form-msg error";
+    }
+});
+
+// ---------- LIST / EDIT / DELETE ----------
+function escapeHtml(str) {
+    const d = document.createElement("div");
+    d.textContent = str == null ? "" : String(str);
+    return d.innerHTML;
+}
+
+let cache = {};
+
+onValue(ref(db, "publications"), (snapshot) => {
+    const data = snapshot.val();
+    cache = {};
+    const items = [];
+
+    if (data) {
+        Object.keys(data).forEach((id) => {
+            cache[id] = { id, ...data[id] };
+            items.push(cache[id]);
+        });
+        items.sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+    }
+
+    if (!items.length) {
+        pubList.innerHTML = '<div class="empty-row">No publications yet. Add your first one above.</div>';
+        return;
+    }
+
+    pubList.innerHTML = items.map((item) => `
+        <div class="pub-row">
+            <img src="${escapeHtml(item.image)}" alt="">
+            <div class="info">
+                <h4>${escapeHtml(item.title)}</h4>
+                <p>${escapeHtml(item.shortDescription)}</p>
+            </div>
+            <div class="row-actions">
+                <button class="icon-btn edit" data-id="${escapeHtml(item.id)}"><i class="fas fa-pen"></i></button>
+                <button class="icon-btn delete" data-id="${escapeHtml(item.id)}"><i class="fas fa-trash"></i></button>
+            </div>
+        </div>
+    `).join("");
+
+    pubList.querySelectorAll(".icon-btn.edit").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            const item = cache[btn.dataset.id];
+            if (!item) return;
+            editingId = item.id;
+            fTitle.value = item.title || "";
+            fShortDesc.value = item.shortDescription || "";
+            fFullDesc.value = item.fullDescription || "";
+            fImage.value = item.image || "";
+            formTitle.textContent = "Edit Publication";
+            saveBtn.innerHTML = '<i class="fas fa-save"></i> Update Publication';
+            cancelEditBtn.style.display = "inline-block";
+            formMsg.textContent = "";
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    });
+
+    pubList.querySelectorAll(".icon-btn.delete").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+            const item = cache[btn.dataset.id];
+            if (!item) return;
+            if (!confirm(`Delete "${item.title}"? This cannot be undone.`)) return;
+            try {
+                await remove(ref(db, "publications/" + item.id));
+                if (editingId === item.id) resetForm();
+            } catch (err) {
+                console.error(err);
+                alert("Failed to delete publication.");
+            }
+        });
+    });
+}, (error) => {
+    console.error("Firebase read failed:", error);
+    pubList.innerHTML = '<div class="empty-row">Unable to load publications.</div>';
+});
+</script>
+
+</body>
+</html>
